@@ -1,0 +1,709 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Omnicard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-31 12:54+0100\n"
+"PO-Revision-Date: 2014-10-31 12:54+0100\n"
+"Last-Translator: Arnan de Gans <info@ajdg.net>\n"
+"Language-Team: Mathias Joergensen from MathiasDesign <contact@mathiasdesign."
+"net>\n"
+"Language: dk_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: omnicard.php:156
+msgid "for"
+msgstr "for"
+
+#: omnicard.php:159
+#, fuzzy
+msgid ""
+"iDEAL and Bancontact/Mister Cash can only accept payments in Euros. Your "
+"store uses: "
+msgstr "iDEAL kan kun acceptere betaling i Euro. Din butik bruger:"
+
+#: omnicard.php:163
+#, fuzzy
+msgid ""
+"Accept iDEAL and Mister Cash payments through the Rabobank Omnikassa Gateway."
+msgstr "Accepter iDeal betalinger gennem Rabobank Omnikassa Port."
+
+#: omnicard.php:164
+msgid ""
+"This plugin requires an activated Omnikassa Agreement with the Rabobank. "
+"Fees for usage apply!"
+msgstr ""
+"Denne plugin kræver en aktiveret Omnikassa aftale med Rabobank. Gebyr for "
+"brug anvendes!"
+
+#: omnicard.php:165 omnicard.php:843
+msgid "Visit the"
+msgstr "Besøg"
+
+#: omnicard.php:165
+msgid "website for more information."
+msgstr "webside for mere information"
+
+#: omnicard.php:166
+msgid ""
+"Once you've used up your 50 transactions, the gateway will temporary disable "
+"until a new month starts."
+msgstr ""
+
+#: omnicard.php:186
+msgid "Basic Settings"
+msgstr "Basis Indstillinger"
+
+#: omnicard.php:190
+msgid "Enable/Disable"
+msgstr "Aktiver/Deaktiver"
+
+#: omnicard.php:192
+msgid "Enable the Rabo Omnikassa Gateway"
+msgstr "Aktiver Rabo Omnikassa Port"
+
+#: omnicard.php:196
+msgid "Title"
+msgstr "Titel"
+
+#: omnicard.php:198
+msgid ""
+"The title which the user sees during checkout; Make sure it matches your "
+"payment methods."
+msgstr ""
+"Titlen som brugeren ser under betalingen; Sørg for den passer til dine "
+"betalings metoder."
+
+#: omnicard.php:203
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: omnicard.php:205
+msgid ""
+"The description which the user sees during checkout; Make sure it matches "
+"your payment methods."
+msgstr ""
+"Beskrivelsen som brugeren ser under betalingen; Sørg for den passer til dine "
+"betalings metoder."
+
+#: omnicard.php:210
+msgid "Icon"
+msgstr "Ikon"
+
+#: omnicard.php:212
+msgid "Show payment icons in the gateway selection box"
+msgstr "Vis betalings ikoner i portens udvælgelses kasse"
+
+#: omnicard.php:213
+msgid ""
+"Place your own logo sized approximately 32*32px in <code>wp-content/uploads/"
+"</code> named <code>omnicard-ideal.png</code>."
+msgstr ""
+"Placér dit eget logo i størrelse 32*32 px i <code>wp-content/uploads/</code> "
+"navngivet <code>omnicard-ideal.png</code> for a erstatte det originale."
+
+#: omnicard.php:219
+msgid "Merchant Details"
+msgstr "Forhandler Detaljer"
+
+#: omnicard.php:221
+msgid ""
+"You can find your merchant details in 2 separate emails sent to you by the "
+"Rabobank after you signed your agreement."
+msgstr ""
+"Du kan finde dine forhandlings detaljer i 2 seperate emails sendt til dig af "
+"Rabobank efter du har underskrevet dine aftaler."
+
+#: omnicard.php:224
+msgid "Merchant ID"
+msgstr "Forhandler ID"
+
+#: omnicard.php:226 omnicard.php:233 omnicard.php:240
+msgid "This is needed in order to take payment."
+msgstr "Det her er nødvendigt for at tage betaling."
+
+#: omnicard.php:231
+msgid "Secret Key"
+msgstr "Hemmelig Nøgle"
+
+#: omnicard.php:238
+msgid "Key Version"
+msgstr "Nøgle Version"
+
+#: omnicard.php:247
+msgid "Accepted Payment Methods"
+msgstr "Accepteret Betalings Metoder"
+
+#: omnicard.php:249
+msgid ""
+"Each payment method requires approval from your bank and possibly an "
+"extension on your agreement with the Rabobank. Check with the Rabobank for "
+"details before activating new payment methods!"
+msgstr ""
+"Hver betalings metode kræver acceptering fra din locale bank og muligvis en "
+"udvidelse på dine aftaler med Rabobank. Check med Rabobank for detaljer før "
+"aktiveringen af nye betalings metoder!"
+
+#: omnicard.php:252
+msgid "iDEAL"
+msgstr "iDEAL"
+
+#: omnicard.php:254
+msgid "Receive iDEAL payments"
+msgstr "Modtag iDEAL betalinger"
+
+#: omnicard.php:255
+#, fuzzy
+msgid "Instant bank transfer. Available to Dutch ATM Card holders."
+msgstr ""
+"Øjeblikkelig bank overførelse. Tilgængelig for fleste Europæiske ATM kort "
+"holdere."
+
+#: omnicard.php:259 omnicard.php:425
+msgid "Bancontact/Mister Cash"
+msgstr ""
+
+#: omnicard.php:261
+#, fuzzy
+msgid "Receive Bancontact/Mister Cash payments"
+msgstr "Modtag MasterCard Betalinger"
+
+#: omnicard.php:262
+#, fuzzy
+msgid "Instant bank transfer. Available to Belgian ATM Card holders."
+msgstr ""
+"Øjeblikkelig bank overførelse. Tilgængelig for fleste Europæiske ATM kort "
+"holdere."
+
+#: omnicard.php:266
+msgid "Default payment option"
+msgstr "Standard betalings mulighed"
+
+#: omnicard.php:267
+msgid ""
+"Default selected option on checkout. The chosen option here must be active "
+"in your contract or no selection can be made! (Only applicable if you use "
+"multiple payment methods.)"
+msgstr ""
+"Standard markeret mulighed ved kassen. Den valgte mulighed her skal være "
+"aktiv i din kontrakt eller ingen udvælgelse kan blive lavet! (Kun gældene "
+"hvis du bruger flere betalings metoder.)"
+
+#: omnicard.php:278
+msgid "Miscellaneous Settings"
+msgstr "Diverse Indstillinger"
+
+#: omnicard.php:282
+msgid "Language"
+msgstr "Sprog"
+
+#: omnicard.php:284
+msgid "Which language should the Rabobank Omnikassa Pages use for checkout."
+msgstr "Hvilket sprog skal Rabobank Omnikassa Sider bruge under betalingen."
+
+#: omnicard.php:287
+msgid "English"
+msgstr "Engelsk"
+
+#: omnicard.php:288
+msgid "Dutch"
+msgstr "Hollandsk"
+
+#: omnicard.php:292
+msgid "Expiration"
+msgstr "Udløb"
+
+#: omnicard.php:294
+msgid ""
+"For added security you can add a timeout to the transaction. The transaction "
+"must be completed within this timeframe or the request will expire and has "
+"to be started over again."
+msgstr ""
+"For mere sikkerhed kan du tilføje en timeout til transaktionen. "
+"Transaktionen skal gennemføres inden for den givet tids periode eller "
+"anmodelsen vil udløbe og skal startes forfra igen."
+
+#: omnicard.php:297
+msgid "Disable"
+msgstr "Deaktiver"
+
+#: omnicard.php:298
+msgid "2 hours (Default)"
+msgstr "2 timer (Standard)"
+
+#: omnicard.php:299
+msgid "4 hours"
+msgstr "4 timer"
+
+#: omnicard.php:300
+msgid "6 hours"
+msgstr "6 timer"
+
+#: omnicard.php:301
+msgid "8 hours"
+msgstr "8 timer"
+
+#: omnicard.php:302
+msgid "16 hours"
+msgstr "16 timer"
+
+#: omnicard.php:303
+msgid "24 hours"
+msgstr "24 timer"
+
+#: omnicard.php:308
+msgid "Invoice Prefix"
+msgstr "Faktura Præfiks"
+
+#: omnicard.php:310
+msgid ""
+"Enter a prefix for your order numbers. Only alphanumeric characters allowed. "
+"If you use your Omnikassa account for multiple stores ensure this prefix is "
+"unqiue to avoid confusion."
+msgstr ""
+"Indtast et præfiks for dine ordre numre. Kun alfanumerisk tegn er tilladt. "
+"Hvis du bruger din Omnikassa bruger for flere butikker hver sikker på dette "
+"præfiks er unikt og undgår forvirring."
+
+#: omnicard.php:310
+msgid ""
+"This prefix is NOT added to WooCommerce orders but is shown on your bank "
+"statements as part of the transaction reference."
+msgstr ""
+"Dette præfiks er IKKE tilføjet til WooCommerce bestillinger men er vist på "
+"din banks erklæringer som en del af transaktionen henvisning."
+
+#: omnicard.php:316
+msgid "Gateway Testing"
+msgstr "Port Testing"
+
+#: omnicard.php:320
+msgid "Simulator"
+msgstr "Simulator"
+
+#: omnicard.php:322
+msgid "Enable the Omnikassa test mode"
+msgstr "Aktiver Omnikassa test modus"
+
+#: omnicard.php:324
+msgid "You can leave your \"live\" account details in place."
+msgstr "Du kan efterlade dine \"live\" bruger detaljer i sted."
+
+#: omnicard.php:327
+msgid "Troubleshooting"
+msgstr "Fejlfinding"
+
+#: omnicard.php:329
+msgid "Enable logging"
+msgstr "Aktiver logning"
+
+#: omnicard.php:331
+#, fuzzy
+msgid ""
+"Log Omnikassa events, such as PSP requests and status updates, inside "
+"<code>wc-logs/omnicard-*.log</code>."
+msgstr ""
+"Log Omnikassa begivenheder, såsom PSP anmodninger og status opdateringer, "
+"indeni <code>woocommerce/logs/omnicard.txt</code>."
+
+#: omnicard.php:420
+msgid "iDeal"
+msgstr "iDeal"
+
+#: omnicard.php:496
+msgid ""
+"Thank you for your order. We are now redirecting you to Rabobank OmniKassa "
+"to make payment."
+msgstr ""
+"Tak for din bestilling. Du bliver nu vidersent til Rabobank OmniKassa for at "
+"fuldføre din betaling."
+
+#: omnicard.php:504
+msgid "Please click the button below to complete your purchase."
+msgstr ""
+"Tak for din bestilling, vær venlig at kllikke på kanppen under dit fuldendte "
+"køb."
+
+#: omnicard.php:509
+msgid "Continue"
+msgstr "Fortsæt"
+
+#: omnicard.php:580
+msgid "Creditcard authorizationlimit exceeded."
+msgstr "Kreditkort tilladelse grænse overskredet."
+
+#: omnicard.php:581
+msgid "Card declined; Insufficient funds, expired or not active."
+msgstr ""
+
+#: omnicard.php:582
+msgid "Invalid Card or Authorization failed. Check your card details."
+msgstr ""
+"Ugyldigt kort eller Tilladelse fejlede. Check detaljer eller prøv et andet "
+"kort"
+
+#: omnicard.php:583
+msgid "Transaction cancelled by user."
+msgstr "Aflyst af brugeren."
+
+#: omnicard.php:584
+msgid ""
+"Awaiting response from gateway. If you place another order you may be billed "
+"more than once."
+msgstr ""
+"Afventer svar fra port. Hvis du placerer endnu en ordre kan du blive "
+"faktureret mere end en gang."
+
+#: omnicard.php:585
+msgid ""
+"You have exceeded the maximum of 3 attempts to enter your card number. "
+"Transaction aborted."
+msgstr ""
+
+#: omnicard.php:586
+msgid "CVC/Security code invalid or empty. Please try again."
+msgstr ""
+
+#: omnicard.php:587
+msgid "Unable to reach payment gateway."
+msgstr "Ude af stand til at nå betalings port."
+
+#: omnicard.php:588
+msgid "Exceeded time limit. Transaction aborted. Please try again."
+msgstr ""
+
+#: omnicard.php:589
+msgid "Payment gateway unavailable."
+msgstr "Betalings port utilgængelig"
+
+#: omnicard.php:730
+#, php-format
+msgid "Issue with reference code. Should be: %s. PSP provided: %s."
+msgstr "Problem med henvisnings kode. Skulle være: %s. PSP provided: %s."
+
+#: omnicard.php:740
+#, php-format
+msgid ""
+"Issue with payment type or brand. Response from PSP - Type: %s, Brand: %s."
+msgstr ""
+"Problem med betaling type eller mærke. Svar fra PSP - Type: %s, Brand: %s."
+
+#: omnicard.php:749
+#, php-format
+msgid ""
+"Validation error: PSP amounts do not match with original order (gross %s)."
+msgstr ""
+"Validerings fejl: PSP beløber matcher ikke til din originale bestilling "
+"(gross %s)."
+
+#: omnicard.php:755
+msgid "PSP payment completed"
+msgstr "PSP betaling fuldført"
+
+#: omnicard.php:769
+msgid "Order set to PENDING. You can try again from your order through"
+msgstr "Ordre sat til VERSERENDE. Du kan prøve igen fra din ordre i"
+
+#: omnicard.php:769
+msgid "Checkout"
+msgstr ""
+
+#: omnicard.php:769
+#, php-format
+msgid "Error: %s."
+msgstr "Fejl. %s."
+
+#: omnicard.php:770
+#, php-format
+msgid ""
+"Awaiting %s payment. Order status changed to pending. Response from PSP: %s."
+msgstr ""
+"Afventer %s betaling Bestilling status ændret til verserende. Respons fra "
+"PSP: %s."
+
+#: omnicard.php:775
+msgid "Cancelled by user."
+msgstr "Aflyst af brugeren."
+
+#: omnicard.php:781
+msgid "Payment session EXPIRED remotely. Please contact support."
+msgstr "Betalings session UDLØB fra fjernadgang. Venligst kontakt support."
+
+#: omnicard.php:782
+msgid "Payment session EXPIRED via PSP."
+msgstr "Betaling session UDLØB via PSP."
+
+#: omnicard.php:787
+#, php-format
+msgid ""
+"Payment Method \"%s\" is not active for this shop. Response from PSP: %s."
+msgstr ""
+"Betalings metode <\"%s\" er ikke aktiv for denne shop. Svar fra PSP: %s."
+
+#: omnicard.php:792
+msgid "Payment session failed. Please contact support."
+msgstr "Betaling session fejlede. Venligst kontakt support."
+
+#: omnicard.php:793
+#, php-format
+msgid "Payment session FAILED via PSP. Response from PSP: %s."
+msgstr "Betaling session fejlede via PSP. Respons fra PSP: %s."
+
+#: omnicard.php:823
+msgid "Useful links"
+msgstr "Nyttige links"
+
+#: omnicard.php:824
+msgid "Brought to you by"
+msgstr "Bragt til dig af"
+
+#: omnicard.php:831
+msgid "OmniCard website"
+msgstr "OmniCard webside"
+
+#: omnicard.php:832
+msgid "AdRotate for Wordpress website"
+msgstr "AdRotate for Wordpress webside"
+
+#: omnicard.php:833
+msgid "My blog and website"
+msgstr "Min blog og webside"
+
+#: omnicard.php:836
+msgid "Omnikassa Costs"
+msgstr "Omnikassa koster"
+
+#: omnicard.php:837
+msgid "Omnikassa Terms of Service"
+msgstr "Omnikassa vilkår og betingelser"
+
+#: omnicard.php:838
+msgid "Omnikassa Support"
+msgstr "Omnikassa Support"
+
+#: omnicard.php:843
+msgid ""
+"Your one stop for Webdevelopment, consultancy and anything WordPress! When "
+"you need a custom plugin, theme customizations or have your site moved/"
+"migrated entirely. Find out more about what I can do for you on my website!"
+msgstr ""
+"Dit ene stop for webudvikling, rådgivning og alt andet for WordPress! Når du "
+"har brug for en personaliseret plugin, tema tilpasninger eller få din side "
+"flyttet/migreret komplet. Find ud af mere om hvad jeg kan gøre for dig på "
+"min webside!"
+
+#: omnicard.php:843
+msgid "website"
+msgstr "webside"
+
+#: omnicard.php:911
+msgid "Learn More"
+msgstr ""
+
+#: omnicard.php:915
+msgid ""
+"You've used up your 50 transactions for this month in <strong>OmniCard "
+"iDeal</strong>. To get <strong>UNLIMITED</strong> transactions per month, "
+"upgrade to the full version of OmniCard"
+msgstr ""
+
+#: omnicard.php:916 omnicard.php:920
+msgid ""
+"In the full version you can also accept payments through Visa, Mastercard, "
+"Maestro and MiniTix."
+msgstr ""
+
+#: omnicard.php:916 omnicard.php:920
+#, fuzzy
+msgid "Thank you for your consideration!"
+msgstr "Tak. Din licens er nu deaktiveret"
+
+#: omnicard.php:919
+msgid "You have used"
+msgstr ""
+
+#: omnicard.php:919
+msgid ""
+"out of 50 transactions this month. Remove this limitation with the "
+"<strong>FULL</strong> version of OmniCard"
+msgstr ""
+
+#~ msgid "Gateway Disabled"
+#~ msgstr "Port Deaktiveret"
+
+#~ msgid "does not support your store currency."
+#~ msgstr "Understøtter ikke din butik valuta."
+
+#~ msgid "OmniCard License"
+#~ msgstr "OmniCard Licens"
+
+#~ msgid "License Type"
+#~ msgstr "Licnes Type"
+
+#~ msgid "Not activated"
+#~ msgstr "Ikke aktiveret"
+
+#~ msgid "License Key"
+#~ msgstr "Licens Nøgle"
+
+#~ msgid "You can find the license key in your purchase email."
+#~ msgstr "Du kan finde din licens nøgle i din betalings email."
+
+#~ msgid "License Email"
+#~ msgstr "Licens Email"
+
+#~ msgid "The email address you used when purchasing."
+#~ msgstr "Email adressen du brugte under betalingen."
+
+#~ msgid "Activate"
+#~ msgstr "Aktiver"
+
+#~ msgid "De-activate"
+#~ msgstr "Deaktiver"
+
+#~ msgid "Invalid request"
+#~ msgstr "Ugyldig anmodelse"
+
+#~ msgid "No license key or email provided"
+#~ msgstr "Ingen licnes nøgle eller email forudsat"
+
+#~ msgid "No valid response from license server. Contact support."
+#~ msgstr "Intet validt svar fra licens serveren. Kontakt support.."
+
+#~ msgid ""
+#~ "The email provided is invalid. If you think this is not true please "
+#~ "contact support."
+#~ msgstr ""
+#~ "Emailen forudsat er ugyldig. Hvis du mener dette ikke er sandt venligst "
+#~ "kontakt suport."
+
+#~ msgid ""
+#~ "Invalid license key. If you think this is not true please contact support."
+#~ msgstr ""
+#~ "Ugyldig licens nøgle. Hvis du mener dette ikke er sandt venligst kontakt "
+#~ "support."
+
+#~ msgid "The purchase matching this product is not complete. Contact support."
+#~ msgstr ""
+#~ "Betalingen der matcher dette product er ikke fuldført. Kontakt support."
+
+#~ msgid ""
+#~ "No remaining activations for this license. If you think this is not true "
+#~ "please contact support."
+#~ msgstr ""
+#~ "Ingen resterende aktivationer for denne licens. Hvis du mener dette ikke "
+#~ "er sandt venligst kontakt support."
+
+#~ msgid "Could not (de)activate key. Contact support."
+#~ msgstr "Kunne ikke (de(aktivere nøgle. Kontakt support."
+
+#~ msgid "Thank you. Your license is now active"
+#~ msgstr "Tak. Din licens er nu aktiv."
+
+#~ msgid "Thank you. Your licenses have been reset"
+#~ msgstr "Tak. Din licens er blevet nulstillet"
+
+#~ msgid "Oh no! Something went wrong!"
+#~ msgstr "Åh nej! Noget gik galt!"
+
+#~ msgid ""
+#~ "WordPress was unable to verify the authenticity of the url you have "
+#~ "clicked. Verify if the url used is valid or log in via your browser."
+#~ msgstr ""
+#~ "WordPress var ude af stand til at verificere gyldigheden af det url du "
+#~ "har klikket. Verificer hvis det url brugt er gyldigt eller log ind via "
+#~ "din browser."
+
+#~ msgid ""
+#~ "If you have received the url you want to visit via email, you are being "
+#~ "tricked!"
+#~ msgstr ""
+#~ "Hvis du har modtaget det url du gerne vil besøge via email, så er du ved "
+#~ "at blive snydt!"
+
+#~ msgid "Contact support if the issue persists:"
+#~ msgstr "Kontakt support hvis dette problem opstår:"
+
+#~ msgid "Register your copy of OmniCard."
+#~ msgstr "Registrer din kopi af OmniCard."
+
+#~ msgid "Register OmniCard"
+#~ msgstr "Registrer OmniCard"
+
+#~ msgid "Test version which may contain bugs or errors"
+#~ msgstr "Test version kan indeholde fejl eller problemer"
+
+#~ msgid "De-activate all active keys on all sites"
+#~ msgstr "Deaktiver alle aktive nøgler på alle sider"
+
+#~ msgid ""
+#~ "You are about to de-activate your license on ALL sites currently using "
+#~ "this License!"
+#~ msgstr ""
+#~ "Du er ved at deaktivere din licens på ALLE sider der i øjeblikket bruger "
+#~ "denne Licens!"
+
+#~ msgid "OK to continue, CANCEL to stop."
+#~ msgstr "OK for at fortsætte, CANCEL for at stoppe"
+
+#~ msgid ""
+#~ "For iDEAL use: <code>wp-content/uploads/omnicard-ideal.png</code> to "
+#~ "replace the default logo."
+#~ msgstr ""
+#~ "For iDEAL brug: <code>wp-content/uploads/omnicard-ideal.png</code> for at "
+#~ "erstatte det originale logo."
+
+#~ msgid "Visa Card"
+#~ msgstr "Visa Kort"
+
+#~ msgid "Receive Visa Card Payments"
+#~ msgstr "Modtag Visa Kort Betalinger"
+
+#~ msgid "International payments. Available worldwide."
+#~ msgstr "Internationale betalinger. Tilgængelige globalt."
+
+#~ msgid "MasterCard"
+#~ msgstr "MasterCard"
+
+#~ msgid "Maestro"
+#~ msgstr "Maestro"
+
+#~ msgid "Receive Maestro Payments"
+#~ msgstr "Modtag Maestro Betalinger"
+
+#~ msgid "Direct bank transfer. Available in Europe."
+#~ msgstr "Direkte bank overførelse. Tilgængelig i Europa."
+
+#~ msgid "MiniTix"
+#~ msgstr "MiniTix"
+
+#~ msgid "Receive MiniTix Payments"
+#~ msgstr "Modtag MiniTix Betalinger"
+
+#~ msgid ""
+#~ "Online wallet for payments up to &euro; 150 Euros. Available to Dutch "
+#~ "bank accounts only."
+#~ msgstr ""
+#~ "Online tegnebog for betalinger op til &euro; 150 Euro. Kun tilgængeligt "
+#~ "for Hollandske bank kontoer"
+
+#~ msgid "Visa or MasterCard"
+#~ msgstr "Visa eller MasterCard"
+
+#~ msgid "Continue to a secure environment to complete your payment"
+#~ msgstr "Fortsæt til et sikkert område for a fuldføre din betaling"
+
+#~ msgid "Card declined. Try another card or other payment method"
+#~ msgstr "Kort afvist. Prøv at andet kort eller anden betalings metode"
+
+#~ msgid "your account"
+#~ msgstr "din konto"
+
+#~ msgid "Online wallet for (usually) small payments."
+#~ msgstr "Online tegnebog for (sædvanligvis) små betalinger."
