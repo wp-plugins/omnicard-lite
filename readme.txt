@@ -13,6 +13,7 @@ The most complete and easy to use payment gateway plugin for Rabobank Omnikassa
 Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able to accept every Payment method it has to offer? Looking for a super easy plugin that just works without fuss? OmniCard is for you! Where other plugins leave you in the dark by supporting one or two of the payment methods, OmniCard goes all the way by supporting iDEAL, All Credit Cards and MiniTix. All in one plugin, One gateway, hassle free and totally cool!
 
 **Features**
+
 * Payment methods: iDEAL, Bancontact/Mister Cash, VISA, V-PAY, Mastercard, Maestro, MiniTix
 * Easy to use dashboard
 * Automated callback for asynchronous updates
@@ -23,6 +24,7 @@ Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able 
 * Configurable Title and Description
 
 **Security**
+
 * Complies with Omnikassa SHA256 encryption method
 * PCI Compliant ? No credit card data stored locally
 * Forces SSL verification on the remote gateway
