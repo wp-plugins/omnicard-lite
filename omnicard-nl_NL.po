@@ -1,0 +1,714 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Omnicard 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-29 19:54+0100\n"
+"PO-Revision-Date: 2015-01-29 19:54+0100\n"
+"Last-Translator: Arnan de Gans <adegans@meandmymac.net>\n"
+"Language-Team: Arnan de Gans from AJdG Solutions <info@ajdg.net>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: omnicard.php:156
+msgid "for"
+msgstr "voor"
+
+#: omnicard.php:159
+msgid ""
+"iDEAL and Bancontact/Mister Cash can only accept payments in Euros. Your "
+"store uses: "
+msgstr ""
+"met iDEAL en Mister Cash kun je alleen Euros gebruiken. De winkel gebruikt:"
+
+#: omnicard.php:163
+msgid ""
+"Accept iDEAL and Bancontact/Mister Cash payments through the Rabobank "
+"Omnikassa Gateway."
+msgstr "Accepteer iDEAL en Mister Cash betalingen via Rabobank Omnikassa."
+
+#: omnicard.php:164
+msgid ""
+"This plugin requires an activated Omnikassa Agreement with the Rabobank. "
+"Fees for usage apply!"
+msgstr ""
+"Deze plugin vereist een geactiveerde Omnikassa Overeenkomst met de Rabobank. "
+"Hier zijn kosten aan verbonden!"
+
+#: omnicard.php:165 omnicard.php:842
+msgid "Visit the"
+msgstr "Bezoek de"
+
+#: omnicard.php:165
+msgid "website for more information."
+msgstr "website voor meer informatie."
+
+#: omnicard.php:166
+msgid ""
+"Once you've used up your 50 transactions, the gateway will temporary disable "
+"until a new month starts."
+msgstr ""
+"Wanneer jeje 50 transacties opgebruikt hebt zal de betaaloptie tijdelijk "
+"uitschakelen tot de nieuwe maand begint."
+
+#: omnicard.php:186
+msgid "Basic Settings"
+msgstr "Basis Instellingen"
+
+#: omnicard.php:190
+msgid "Enable/Disable"
+msgstr "Aan/Uit"
+
+#: omnicard.php:192
+msgid "Enable the Rabo Omnikassa Gateway"
+msgstr "Schakel Rabo Omnikassa in"
+
+#: omnicard.php:196
+msgid "Title"
+msgstr "Titel"
+
+#: omnicard.php:198
+msgid ""
+"The title which the user sees during checkout; Make sure it matches your "
+"payment methods."
+msgstr ""
+"Zichtbaar voor de betaler tijdens het afrekenen; Zorg dat deze klopt met de "
+"aangeboden betaalmethoden."
+
+#: omnicard.php:203
+msgid "Description"
+msgstr "Omschrijving"
+
+#: omnicard.php:205
+msgid ""
+"The description which the user sees during checkout; Make sure it matches "
+"your payment methods."
+msgstr ""
+"Zichtbaar voor de betaler tijdens het afrekenen; Zorg dat deze klopt met de "
+"aangeboden betaalmethoden."
+
+#: omnicard.php:210
+msgid "Icon"
+msgstr "Icoon"
+
+#: omnicard.php:212
+msgid "Show payment icons in the gateway selection box"
+msgstr "Laat icoontjes zien bij het betalen"
+
+#: omnicard.php:213
+msgid ""
+"Place your own logo sized approximately 32*32px in <code>wp-content/uploads/"
+"</code> named <code>omnicard-ideal.png</code>."
+msgstr ""
+"Plaats je eigen icoon met dimensies van ongeveer 32*32px in <code>wp-content/"
+"uploads/</code> genaamd <code>omnicard-ideal.png</code>."
+
+#: omnicard.php:219
+msgid "Merchant Details"
+msgstr "Webwinkel details"
+
+#: omnicard.php:221
+msgid ""
+"You can find your merchant details in 2 separate emails sent to you by the "
+"Rabobank after you signed your agreement."
+msgstr ""
+"Je kunt je webwinkel details vinden in 2 separaat verstuurde emails van de "
+"Rabobank."
+
+#: omnicard.php:224
+msgid "Merchant ID"
+msgstr "webwinkel ID"
+
+#: omnicard.php:226 omnicard.php:233 omnicard.php:240
+msgid "This is needed in order to take payment."
+msgstr "Dit is vereist om betalingen te ontvangen."
+
+#: omnicard.php:231
+msgid "Secret Key"
+msgstr "Geheime sleutel"
+
+#: omnicard.php:238
+msgid "Key Version"
+msgstr "Sleutel versie"
+
+#: omnicard.php:247
+msgid "Accepted Payment Methods"
+msgstr "Te accepteren betaalmethoden"
+
+#: omnicard.php:249
+msgid ""
+"Each payment method requires approval from your bank and possibly an "
+"extension on your agreement with the Rabobank. Check with the Rabobank for "
+"details before activating new payment methods!"
+msgstr ""
+"Elke betaal methode vereist goedkeuring van de Rabobank en mogelijk een "
+"uitbreiding op jouw overeenkomst. Neem contact op met de Rabobank voor "
+"details voor dat je nieuwe betaal methodes activeert!"
+
+#: omnicard.php:252
+msgid "iDEAL"
+msgstr "iDEAL"
+
+#: omnicard.php:254
+msgid "Receive iDEAL payments"
+msgstr "Ontvang betalingen via iDEAL"
+
+#: omnicard.php:255
+msgid "Instant bank transfer. Available to Dutch ATM Card holders."
+msgstr "Directe overboeking. Beschikbaar voor Nederlandse bankpas houders."
+
+#: omnicard.php:259 omnicard.php:425
+msgid "Bancontact/Mister Cash"
+msgstr "Bancontact/Mister Cash"
+
+#: omnicard.php:261
+msgid "Receive Bancontact/Mister Cash payments"
+msgstr "Ontvang betalingen via Bancontact Mister Cash"
+
+#: omnicard.php:262
+msgid "Instant bank transfer. Available to Belgian ATM Card holders."
+msgstr "Directe overboeking. Beschikbaar voor Belgische bankpas houders."
+
+#: omnicard.php:266
+msgid "Default payment option"
+msgstr "Standaard gekozen betaal optie"
+
+#: omnicard.php:267
+msgid ""
+"Default selected option on checkout. The chosen option here must be active "
+"in your contract or no selection can be made! (Only applicable if you use "
+"multiple payment methods.)"
+msgstr ""
+"Standaard gekozen optie bij betalen. De gekozen optie moet actief zijn voor "
+"jouw contract. (Alleen bruikbaar indien je meerdere betaalmethodes aanbied.)"
+
+#: omnicard.php:278
+msgid "Miscellaneous Settings"
+msgstr "Overige instellingen"
+
+#: omnicard.php:282
+msgid "Language"
+msgstr "Taal"
+
+#: omnicard.php:284
+msgid "Which language should the Rabobank Omnikassa Pages use for checkout."
+msgstr "Welke taal moeten de Rabo Omnikassa betaalpagina's gebruiken."
+
+#: omnicard.php:287
+msgid "English"
+msgstr "Engels"
+
+#: omnicard.php:288
+msgid "Dutch"
+msgstr "Nederlands"
+
+#: omnicard.php:292
+msgid "Expiration"
+msgstr "Geldigheid"
+
+#: omnicard.php:294
+msgid ""
+"For added security you can add a timeout to the transaction. The transaction "
+"must be completed within this timeframe or the request will expire and has "
+"to be started over again."
+msgstr ""
+"Voor betere beveiliging kun je elke transactie een bepaalde tijd geldig "
+"laten zijn. De betaling moet dan binnen dit tijdsbestek afgerond zijn of de "
+"transactie word geannuleerd."
+
+#: omnicard.php:297
+msgid "Disable"
+msgstr "Niet gebruiken"
+
+#: omnicard.php:298
+msgid "2 hours (Default)"
+msgstr "2 uur (Standaard)"
+
+#: omnicard.php:299
+msgid "4 hours"
+msgstr "4 uur"
+
+#: omnicard.php:300
+msgid "6 hours"
+msgstr "6 uur"
+
+#: omnicard.php:301
+msgid "8 hours"
+msgstr "8 uur"
+
+#: omnicard.php:302
+msgid "16 hours"
+msgstr "16 uur"
+
+#: omnicard.php:303
+msgid "24 hours"
+msgstr "24 uur"
+
+#: omnicard.php:308
+msgid "Invoice Prefix"
+msgstr "Factuur voorvoegsel"
+
+#: omnicard.php:310
+msgid ""
+"Enter a prefix for your order numbers. Only alphanumeric characters allowed. "
+"If you use your Omnikassa account for multiple stores ensure this prefix is "
+"unqiue to avoid confusion."
+msgstr ""
+"Geef facturen een voorvoegsel. Alleen alfanumerieke karakters toegestaan. "
+"Zorg dat dit voorvoegsel uniek is voor elke webwinkel wanneer de Omnikassa "
+"account voor meerdere webwinkels gebruikt word."
+
+#: omnicard.php:310
+msgid ""
+"This prefix is NOT added to WooCommerce orders but is shown on your bank "
+"statements as part of the transaction reference."
+msgstr ""
+"Dit voorvoegsel is NIET toegevoegd aan WooCommerce orders maar word "
+"weergegeven in het overzicht van de Rabobank als onderdeel van de transactie "
+"referentie."
+
+#: omnicard.php:316
+msgid "Gateway Testing"
+msgstr "Testen"
+
+#: omnicard.php:320
+msgid "Simulator"
+msgstr "Simulatie"
+
+#: omnicard.php:322
+msgid "Enable the Omnikassa test mode"
+msgstr "Gebruik de Omnikassa in testmodus"
+
+#: omnicard.php:324
+msgid "You can leave your \"live\" account details in place."
+msgstr "Je kunt je \"live\" account gegevens laten staan."
+
+#: omnicard.php:327
+msgid "Troubleshooting"
+msgstr "Problemen vinden"
+
+#: omnicard.php:329
+msgid "Enable logging"
+msgstr "Gebruik log-bestand"
+
+#: omnicard.php:331
+msgid ""
+"Log Omnikassa events, such as PSP requests and status updates, inside "
+"<code>wc-logs/omnicard-*.log</code>."
+msgstr ""
+"Registreer Omnikassa acties zoals PSP aanvragen en status updates. Het "
+"register word opgeslagen in <code>wc-logs/omnicard-*.log</code>."
+
+#: omnicard.php:420
+msgid "iDeal"
+msgstr "iDeal"
+
+#: omnicard.php:496
+msgid ""
+"Thank you for your order. We are now redirecting you to Rabobank OmniKassa "
+"to make payment."
+msgstr ""
+"Bedankt voor uw bestelling. U word nu doorgestuurd naar de Rabobank "
+"OmniKassa om de betaling te voltooien."
+
+#: omnicard.php:504
+msgid "Please click the button below to complete your purchase."
+msgstr "Klik op onderstaande knop om verder te gaan met uw betaling."
+
+#: omnicard.php:509
+msgid "Continue"
+msgstr "Ga door"
+
+#: omnicard.php:580
+msgid "Creditcard authorizationlimit exceeded."
+msgstr "Authorisatielimiet creditcard overschreden."
+
+#: omnicard.php:581
+msgid "Card declined; Insufficient funds, expired or not active."
+msgstr "Kaart geweigerd; Onvoldoende saldo, verlopen of niet actief."
+
+#: omnicard.php:582
+msgid "Invalid Card or Authorization failed. Check your card details."
+msgstr "Ongeldige kaart of Autorisatie mislukt. Controleer de gegevens!"
+
+#: omnicard.php:583
+msgid "Transaction cancelled by user."
+msgstr "Geannuleerd bij gebruiker."
+
+#: omnicard.php:584
+msgid ""
+"Awaiting response from gateway. If you place another order you may be billed "
+"more than once."
+msgstr ""
+"In afwachting van reactie van de betaalserver. Wanneer u de bestelling "
+"opnieuw plaatst kunnen de orderkosten meerdere malen in rekening gebracht "
+"worden."
+
+#: omnicard.php:585
+msgid ""
+"You have exceeded the maximum of 3 attempts to enter your card number. "
+"Transaction aborted."
+msgstr ""
+"Transactie gestopt. U heeft te vaak een verkeerd kaart nummer ingevuld."
+
+#: omnicard.php:586
+msgid "CVC/Security code invalid or empty. Please try again."
+msgstr "CVC/Beveiligingscode ongeldig of leeg. Probeert u het opnieuw."
+
+#: omnicard.php:587
+msgid "Unable to reach payment gateway."
+msgstr "Kan betaalserver niet bereiken."
+
+#: omnicard.php:588
+msgid "Exceeded time limit. Transaction aborted. Please try again."
+msgstr ""
+"Toegestane tijd verstreken. Transactie gestopt. Probeert u het opnieuw."
+
+#: omnicard.php:589
+msgid "Payment gateway unavailable."
+msgstr "Betaalserver onbereikbaar."
+
+#: omnicard.php:729
+#, php-format
+msgid "Issue with reference code. Should be: %s. PSP provided: %s."
+msgstr "Probleem met referentie code. Moet zijn: %s. PSP gaf: %s."
+
+#: omnicard.php:739
+#, php-format
+msgid ""
+"Issue with payment type or brand. Response from PSP - Type: %s, Brand: %s."
+msgstr "Probleem met betaal methode. Respons van PSP - Type: %s, Merk: %s."
+
+#: omnicard.php:748
+#, php-format
+msgid ""
+"Validation error: PSP amounts do not match with original order (gross %s)."
+msgstr ""
+"Validatie fout: PSP bedrag komt niet overeen met het bedrag van de "
+"bestelling (totaal %s)."
+
+#: omnicard.php:754
+msgid "PSP payment completed"
+msgstr "PSP betaling compleet"
+
+#: omnicard.php:768
+msgid "Order set to PENDING. You can try again from your order through"
+msgstr "Bestelling op AFWACHTEN gezet. U kunt het opnieuw proberen in"
+
+#: omnicard.php:768
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: omnicard.php:768
+#, php-format
+msgid "Error: %s."
+msgstr "Fout: %s."
+
+#: omnicard.php:769
+#, php-format
+msgid ""
+"Awaiting %s payment. Order status changed to pending. Response from PSP: %s."
+msgstr ""
+"Verwacht %s betaling. Bestel status naar \"wacht\" gewijzigd. Respons code: "
+"%s."
+
+#: omnicard.php:774
+msgid "Cancelled by user."
+msgstr "Geannuleerd bij gebruiker."
+
+#: omnicard.php:780
+msgid "Payment session EXPIRED remotely. Please contact support."
+msgstr "Betaal sessie is VERLOPEN bij de bank. Neem contact op met support."
+
+#: omnicard.php:781
+msgid "Payment session EXPIRED via PSP."
+msgstr "Betaal sessie VERLOPEN bij PSP. Probeert u het opnieuw!"
+
+#: omnicard.php:786
+#, php-format
+msgid ""
+"Payment Method \"%s\" is not active for this shop. Response from PSP: %s."
+msgstr ""
+"Betaal methode \"%s\" is niet actief voor deze webwinkel. Respons van PHP: "
+"%s."
+
+#: omnicard.php:791
+msgid "Payment session failed. Please contact support."
+msgstr "Betaal sessie mislukt bij PSP. Neem contact op met support."
+
+#: omnicard.php:792
+#, php-format
+msgid "Payment session FAILED via PSP. Response from PSP: %s."
+msgstr "Betaal sessie MISLUKT bij PSP. Fout code: %s."
+
+#: omnicard.php:822
+msgid "Useful links"
+msgstr "Handige links"
+
+#: omnicard.php:823
+msgid "Brought to you by"
+msgstr "Aangeboden door"
+
+#: omnicard.php:830
+msgid "OmniCard website"
+msgstr "OmniCard website"
+
+#: omnicard.php:831
+msgid "AdRotate for Wordpress website"
+msgstr "AdRotate voor WordPress"
+
+#: omnicard.php:832
+msgid "My blog and website"
+msgstr "Mijn blog en website"
+
+#: omnicard.php:835
+msgid "Omnikassa Costs"
+msgstr "Kosten Omnikassa"
+
+#: omnicard.php:836
+msgid "Omnikassa Terms of Service"
+msgstr "Gebruikersvoorwaarden Omnikassa"
+
+#: omnicard.php:837
+msgid "Omnikassa Support"
+msgstr "Omnikassa ondersteuning"
+
+#: omnicard.php:842
+msgid ""
+"Your one stop for Webdevelopment, consultancy and anything WordPress! When "
+"you need a custom plugin, theme customizations or have your site moved/"
+"migrated entirely. Find out more about what I can do for you on my website!"
+msgstr ""
+"Uw eerste stop voor Webontwikkeling, consultancy en alles wat met WordPress "
+"te maken heeft! Wanneer u een aangepaste plugin, thema aanpassingen nodig "
+"hebt of uw website wilt verplaatsen. Lees meer over wat ik voor u kan doen "
+"op mijn website!"
+
+#: omnicard.php:842
+msgid "website"
+msgstr "website"
+
+#: omnicard.php:910
+msgid "Learn More"
+msgstr "Lees Meer"
+
+#: omnicard.php:914
+msgid ""
+"You've used up your 50 transactions for this month in <strong>OmniCard "
+"iDeal</strong>. To get <strong>UNLIMITED</strong> transactions per month, "
+"upgrade to the full version of OmniCard"
+msgstr ""
+"Je hebt de limit van 50 transacties met <strong>OmniCard iDeal</strong> voor "
+"deze maand bereikt. Upgrade naar de volledige versie van OmniCard om deze "
+"limiet weg te halen"
+
+#: omnicard.php:915 omnicard.php:919
+msgid ""
+"In the full version you can also accept payments through Visa, Mastercard, "
+"Maestro and MiniTix."
+msgstr ""
+"In de volledige versie kun je ook betalingen via Visa, MasterCard, Maestro "
+"en Minitix accepteren."
+
+#: omnicard.php:915 omnicard.php:919
+msgid "Thank you for your consideration!"
+msgstr "Dankjewel voor je overweging!"
+
+#: omnicard.php:918
+msgid "You have used"
+msgstr "Je hebt"
+
+#: omnicard.php:918
+msgid ""
+"out of 50 transactions this month. Remove this limitation with the "
+"<strong>FULL</strong> version of OmniCard"
+msgstr ""
+"van de 50 transacties gebruikt deze maand. Deze limitatie zit niet in de "
+"<strong>VOLLEDIGE</strong> versie van OmniCard."
+
+#~ msgid "Gateway Disabled"
+#~ msgstr "Toegang Uitgeschakeld"
+
+#~ msgid "does not support your store currency."
+#~ msgstr "ondersteunt niet jouw munt eenheid."
+
+#~ msgid "OmniCard License"
+#~ msgstr "OmniCard Licentie"
+
+#~ msgid "License Type"
+#~ msgstr "Licentie Type"
+
+#~ msgid "Not activated"
+#~ msgstr "Niet actief"
+
+#~ msgid "License Key"
+#~ msgstr "Licentie Sleutel"
+
+#~ msgid "You can find the license key in your purchase email."
+#~ msgstr "Je kunt je licentie sleutel vinden in de email van de bestelling."
+
+#~ msgid "License Email"
+#~ msgstr "Licentie Email adres"
+
+#~ msgid "The email address you used when purchasing."
+#~ msgstr "Het email adres dat je gebruikt hebt in de aankoop."
+
+#~ msgid "Activate"
+#~ msgstr "Activeer"
+
+#~ msgid "De-activate"
+#~ msgstr "De-activeer"
+
+#~ msgid "Invalid request"
+#~ msgstr "Ongeldig verzoek"
+
+#~ msgid "No license key or email provided"
+#~ msgstr "Geen licentie sleutel of email adres gegeven"
+
+#~ msgid "No valid response from license server. Contact support."
+#~ msgstr ""
+#~ "Geen geldige reactie van de licentie server. Neem contact op met support."
+
+#~ msgid ""
+#~ "The email provided is invalid. If you think this is not true please "
+#~ "contact support."
+#~ msgstr ""
+#~ "Ongeldig email adres. Wanneer dit probleem aanhoud neem contact op met "
+#~ "support."
+
+#~ msgid ""
+#~ "Invalid license key. If you think this is not true please contact support."
+#~ msgstr ""
+#~ "Ongeldige licentie sleutel. Neem contact op met support wanneer dit "
+#~ "onjuist is."
+
+#~ msgid "The purchase matching this product is not complete. Contact support."
+#~ msgstr "De aankoop is nog niet afgerond. Neem contact op met support."
+
+#~ msgid ""
+#~ "No remaining activations for this license. If you think this is not true "
+#~ "please contact support."
+#~ msgstr ""
+#~ "Het maximum aantal activaties is reeds bereikt. Neem contact op met "
+#~ "support wanneer dit onjuist is."
+
+#~ msgid "Could not (de)activate key. Contact support."
+#~ msgstr "Kon licentie niet (de)activeren. Neem contact op met support."
+
+#~ msgid "Thank you. Your license is now active"
+#~ msgstr "Bedankt! De licentie is geactiveerd"
+
+#~ msgid "Thank you. Your licenses have been reset"
+#~ msgstr "Bedankt! De licentie is gereset"
+
+#~ msgid "Oh no! Something went wrong!"
+#~ msgstr "Oeps! Er ging iets mis!"
+
+#~ msgid ""
+#~ "WordPress was unable to verify the authenticity of the url you have "
+#~ "clicked. Verify if the url used is valid or log in via your browser."
+#~ msgstr ""
+#~ "WordPress was niet in staat om de url te verifiëren. Controleer of de url "
+#~ "geldig is of log in via de browser."
+
+#~ msgid ""
+#~ "If you have received the url you want to visit via email, you are being "
+#~ "tricked!"
+#~ msgstr "Wanneer je deze url via email ontvangen hebt word je gescammed!"
+
+#~ msgid "Contact support if the issue persists:"
+#~ msgstr ""
+#~ "Zoek contact met support wanneer het probleem zich blijft voor doen:"
+
+#~ msgid "Register your copy of OmniCard."
+#~ msgstr "Registreer jouw kopie van OmniCard."
+
+#~ msgid "Register OmniCard"
+#~ msgstr "Registreer Omnicard"
+
+#~ msgid "Test version which may contain bugs or errors"
+#~ msgstr "Test versie welke bugs of fouten kan bevatten"
+
+#~ msgid "De-activate all active keys on all sites"
+#~ msgstr "De-activeer deze licentie op alle sites"
+
+#~ msgid ""
+#~ "You are about to de-activate your license on ALL sites currently using "
+#~ "this License!"
+#~ msgstr ""
+#~ "Je staat op het punt om deze licentie voor alle sites waar deze actief is "
+#~ "te de-activeren!"
+
+#~ msgid "OK to continue, CANCEL to stop."
+#~ msgstr "OK om door te gaan. Annuleer om te stoppen."
+
+#~ msgid ""
+#~ "For iDEAL use: <code>wp-content/uploads/omnicard-ideal.png</code> to "
+#~ "replace the default logo."
+#~ msgstr ""
+#~ "Voor iDEAL gebruik: <code>wp-content/uploads/omnicard-ideal.png</code> om "
+#~ "het standaard icoon te vervangen"
+
+#~ msgid "Visa Card"
+#~ msgstr "Visa Card"
+
+#~ msgid "International payments. Available worldwide."
+#~ msgstr "Internationale betalingen, wereldwijd beschikbaar."
+
+#~ msgid "MasterCard"
+#~ msgstr "MasterCard"
+
+#~ msgid "Maestro"
+#~ msgstr "Masestro"
+
+#~ msgid "MiniTix"
+#~ msgstr "MiniTix"
+
+#~ msgid ""
+#~ "Online wallet for payments up to &euro; 150 Euros. Available to Dutch "
+#~ "bank accounts only."
+#~ msgstr ""
+#~ "Online portemonnee voor betalingen tot &euro; 150 Euro. Alleen "
+#~ "beschikbaar voor Nederlandse bank rekeningen."
+
+#~ msgid "Visa or MasterCard"
+#~ msgstr "Visa of MasterCard"
+
+#~ msgid "Continue to a secure environment to complete your payment"
+#~ msgstr "Ga door naar de veilige betaalomgeving om de betaling af te ronden"
+
+#~ msgid "Card declined. Try another card or other payment method"
+#~ msgstr "Kaart geweigerd. Probeer een andere kaart of betaalmethode."
+
+#~ msgid "your account"
+#~ msgstr "jouw account"
+
+#~ msgid "Online wallet for (usually) small payments."
+#~ msgstr "Online portemonnee voor kleine betalingen."
+
+#~ msgid "Redirecting to PSP external gateway."
+#~ msgstr "Doorsturen naar PSP systeem."
+
+#~ msgid "Order set to PENDING. Error: %s."
+#~ msgstr "Order op AFWACHTEN gezet. Fout: %s."
+
+#~ msgid "Activate your License here."
+#~ msgstr "Activeer je licentie."
+
+#~ msgid "The email provided is invalid"
+#~ msgstr "Ongeldig email adres"
+
+#~ msgid "No remaining activations for this license"
+#~ msgstr "Geen activaties meer mogelijk voor dit licentie"
+
+#~ msgid "Action prohibited"
+#~ msgstr "Actie geweigerd"
+
+#~ msgid "Form can not be empty!"
+#~ msgstr "Formulier mag niet leeg zijn!"
