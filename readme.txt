@@ -3,19 +3,18 @@ Contributors: adegans
 Donate link: http://meandmymac.net/donate/
 Tags: ecommerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, woocommerce, plugin, admin, payment, ideal, visa, mastercard, minitix, maestro, bancontact, mister cash, rabobank, omnikassa, bank, api, secure, betalen, betaalplugin, payment, gateway
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 1.0
+Tested up to: 4.1
+Stable tag: 1.0.1
 
 The most complete and easy to use payment gateway plugin for Rabobank Omnikassa
 
 == Description ==
 
-Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able to accept all popular Payment methods? Looking for a super easy plugin that just works without fuss? OmniCard is for you! Accept iDeal and Mister Cash/Bancontact in one plugin, One gateway, hassle free and totally cool!
+Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able to accept every Payment method it has to offer? Looking for a super easy plugin that just works without fuss? OmniCard is for you! Where other plugins leave you in the dark by supporting one or two of the payment methods, OmniCard goes all the way by supporting iDEAL, All Credit Cards and MiniTix. All in one plugin, One gateway, hassle free and totally cool!
 
 **Features**
 
-* Payment methods OmniCard Lite: iDEAL, Bancontact/Mister Cash
-* Payment methods OmniCard: iDEAL, Bancontact/Mister Cash, VISA, V-PAY, Mastercard, Maestro, MiniTix
+* Payment methods: iDEAL, Bancontact/Mister Cash, VISA, V-PAY, Mastercard, Maestro, MiniTix
 * Easy to use dashboard
 * Automated callback for asynchronous updates
 * All payment methods optional
@@ -52,6 +51,10 @@ Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dash
 * Rabobank OmniKassa Agreement
 
 == Changelog ==
+
+= 1.0.1 =
+* Updated ajdg.solutions links
+* Updated Dutch translation
 
 = 1.0 =
 * First public release
