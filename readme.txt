@@ -1,10 +1,8 @@
-=== OmniCard Lite ===
+=== OmniCard ===
 Contributors: adegans
-Donate link: http://meandmymac.net/donate/
-Tags: ecommerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, woocommerce, plugin, admin, payment, ideal, visa, mastercard, minitix, maestro, bancontact, mister cash, rabobank, omnikassa, bank, api, secure, betalen, betaalplugin, payment, gateway
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.0.1
+Tested up to: 4.1.2
+Stable tag: 1.3.2
 
 The most complete and easy to use payment gateway plugin for Rabobank Omnikassa
 
@@ -12,32 +10,7 @@ The most complete and easy to use payment gateway plugin for Rabobank Omnikassa
 
 Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able to accept every Payment method it has to offer? Looking for a super easy plugin that just works without fuss? OmniCard is for you! Where other plugins leave you in the dark by supporting one or two of the payment methods, OmniCard goes all the way by supporting iDEAL, All Credit Cards and MiniTix. All in one plugin, One gateway, hassle free and totally cool!
 
-**Features**
-
-* Payment methods: iDEAL, Bancontact/Mister Cash, VISA, V-PAY, Mastercard, Maestro, MiniTix
-* Easy to use dashboard
-* Automated callback for asynchronous updates
-* All payment methods optional
-* All Omnikassa currencies supported
-* Use Omnikassa in English or Dutch
-* Order number prefixes
-* Configurable Title and Description
-
-**Security**
-
-* Complies with Omnikassa SHA256 encryption method
-* PCI Compliant ? No credit card data stored locally
-* Forces SSL verification on the remote gateway
-* Session timeout for remote gateway
-* Local SSL Supported but not required
-* Matches Card Type and Brand
-* Matches paid amount with order amount
-* Matches PSP ID with order ID
-
 == Installation ==
-
-Simply click install from your dashboard and the plugin will be autmatically downloaded.
-Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dashboard.
 
 = Minimum (Website) Requirements =
 
@@ -50,32 +23,14 @@ Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dash
 * Rabobank Business account
 * Rabobank OmniKassa Agreement
 
-== Changelog ==
-
-= 1.0.1 =
-* Updated ajdg.solutions links
-* Updated Dutch translation
-
-= 1.0 =
-* First public release
-
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?utm_source=omnicard_readme&utm_medium=omnicard-lite&utm_campaign=upgrade_omnicard).
-
-== Upgrade Notice ==
-
-= 1.0 =
-* First public release
-
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?utm_source=omnicard_readme&utm_medium=omnicard-lite&utm_campaign=upgrade_omnicard).
-
 == Frequently Asked Questions ==
 
-Check out the [OmniCard page](https://ajdg.solutions/products/omnicard/?utm_source=omnicard_readme&utm_medium=omnicard-lite&utm_campaign=omnicard_faq).
+Check out the [OmniCard page](https://ajdg.solutions/products/omnicard/?utm_source=omnicard&utm_medium=omnicard_readme&utm_campaign=support).
 
 == Screenshots ==
 
-Check out the [OmniCard page](http://www.ajdg.net/products/omnicard?utm_source=omnicard_readme&utm_medium=omnicard-lite&utm_campaign=omnicard_screenshots).
+Check out the [OmniCard page](https://ajdg.solutions/products/omnicard/?utm_source=omnicard&utm_medium=omnicard_readme&utm_campaign=screenshots).
 
 == Changelog ==
 
-Check out the [OmniCard page](http://www.ajdg.net/products/omnicard?utm_source=omnicard_readme&utm_medium=omnicard-lite&utm_campaign=omnicard_changelog).
+Check out the [OmniCard page](https://ajdg.solutions/products/omnicard/?utm_source=omnicard&utm_medium=omnicard_readme&utm_campaign=changelog).

@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: OmniCard Lite
- * Plugin URI: https://ajdg.solutions/
- * Description: Accept payments through iDeal and Bancontact/Mister Cash offered by Rabo Omnikassa in WooCommerce. This Lite version can accept up to 50 payments per month through iDeal and Mister Cash.
- * Version: 1.0.1
+ * Plugin Name: OmniCard
+ * Plugin URI: https://ajdg.solutions
+ * Description: Accept payments through Visa, MasterCard, MiniTix, Maestro, iDeal and Bancontact/Mister Cash offered by Rabo Omnikassa in WooCommerce.
+ * Version: 1.3.2
  * Author: Arnan de Gans from AJdG Solutions
  * Author URI: http://meandmymac.net
  * Requires at least: 3.5, WooCommerce 2.1
@@ -15,7 +15,20 @@ register_uninstall_hook(__FILE__, 'omnicard_uninstall');
 
 add_action('plugins_loaded', 'omnicard_init');
 add_action('admin_notices', 'omnicard_notifications_dashboard');
-add_action("admin_print_styles", 'omnicard_dashboard_styles');
+
+if(is_admin()) {
+	/*--- Update API --------------------------------------------*/
+	include_once(WP_CONTENT_DIR.'/plugins/omnicard/library/license-functions.php');
+	include_once(WP_CONTENT_DIR.'/plugins/omnicard/library/license-api.php');
+
+	$ajdg_solutions_domain = 'https://ajdg.solutions';
+	$omnicard_api_url = $ajdg_solutions_domain.'/api/updates/3/';
+	add_action('admin_init', 'omnicard_licensed_update');
+
+	if(isset($_POST['omnicard_license_activate'])) add_action('init', 'omnicard_license_activate');
+	if(isset($_POST['omnicard_license_deactivate'])) add_action('init', 'omnicard_license_deactivate');
+	if(isset($_POST['omnicard_license_reset'])) add_action('init', 'omnicard_license_reset');
+}
 
 /*-------------------------------------------------------------
  Name:      omnicard_add_gateway
@@ -45,19 +58,23 @@ function omnicard_init() {
     	function __construct() {
 			global $woocommerce;
 	
-	        $this->id = 'omnicardlite';
+	        $this->id = 'omnicard';
 	        $this->has_fields = true;
-	        $this->method_title = 'Omnikassa';
+	        $this->method_title	= 'Omnikassa';
 
+	        $this->version = '1.3.1';
+	        $this->beta	= '';
+	        
 	        $this->liveurl = 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet';
 			$this->testurl = 'https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet';
-	        $this->testmerchant = '002020000000001';
-			$this->testkey = '002020000000001_KEY1';
+	        $this->merchantiddemo = '002020000000001';
+			$this->secretkeydemo = '002020000000001_KEY1';
 			$this->keyversiondemo = '1';
 			$this->interface_version = 'HP_1.0';
 
 			$this->uploadloc = wp_upload_dir();
 			$this->pluginloc = plugins_url();
+			$this->betadescription = !empty($this->beta) ? '<strong><abbr title="TEST VERSION WHICH MAY CONTAIN BUGS OR ERRORS">BETA VERSION</abbr>: ' . $this->version . $this->beta . '</strong> - ' : '';
 
 			// Load the form fields.
 			$this->init_form_fields();
@@ -66,16 +83,21 @@ function omnicard_init() {
 			$this->init_settings();
 
 			// Define user set variables
-			$this->title = !empty($this->settings['title']) ? $this->settings['title'] : 'iDEAL or Bancontact/Mister Cash';
-			$this->description = !empty($this->settings['description']) ? $this->settings['description'] : 'Pay securely with iDeal or bancontact/Mister Cash through Rabo Omnikassa.';
+			$this->title = !empty($this->settings['title']) ? $this->settings['title'] : 'Credit Card, iDEAL, Mister Cash, V-PAY, MiniTix';
+			$this->description = !empty($this->settings['description']) ? $this->betadescription.$this->settings['description'] : 'Pay securely with your Credit Card, iDeal, Mister Cash, V-PAY, or MiniTix through Rabo Omnikassa.';
 
 			$this->merchantid = $this->settings['merchantid'];
 			$this->secretkey = $this->settings['secretkey'];
 			$this->keyversion = $this->settings['keyversion'];
 			
 	        $this->checkout_icon = $this->settings['checkout_icon'];
-			$this->method_ideal	= $this->settings['method_ideal'];
+			$this->method_ideal = $this->settings['method_ideal'];
 			$this->method_bcmc = $this->settings['method_bcmc'];
+			$this->method_visa = $this->settings['method_visa'];
+			$this->method_master = $this->settings['method_master'];
+			$this->method_vpay = $this->settings['method_vpay'];
+			$this->method_maestro = $this->settings['method_maestro'];
+			$this->method_minitix = $this->settings['method_minitix'];
 			$this->method_default = $this->settings['method_default'];
 
 			$this->remote_language = !empty($this->settings['remote_language']) ? $this->settings['remote_language'] : 'en';
@@ -83,7 +105,7 @@ function omnicard_init() {
 			$this->invoice_prefix = !empty($this->settings['invoice_prefix']) ? $this->settings['invoice_prefix'] = preg_replace("/[^a-z0-9.]+/i", "", $this->settings['invoice_prefix']) : '';
 
 			$this->testmode = $this->settings['testmode'];
-			$this->debugger	= $this->settings['debug'];
+			$this->debugger = $this->settings['debug'];
 
 			// Logs
 			if($this->debugger=='yes') $this->log = new WC_Logger();
@@ -94,10 +116,7 @@ function omnicard_init() {
 			add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
 			add_action('woocommerce_api_' . strtolower(get_class($this)), array($this, 'check_psp_response'));
 			add_filter('woocommerce_gateway_icon', array(&$this, 'iconset'), 10, 2);
-			
-			$this->transactions = get_option('omnicard_count');
-			if($this->transactions['month'] < mktime(0, 0, 0, date("m"), 1, date("Y"))) update_option('omnicard_count', array('count' => 0, 'month' => mktime(0, 0, 0, date("m"), 1, date("Y")))); 
-			if($this->transactions['count'] >= 50) $this->enabled = false;
+
 			if(!$this->currency_is_valid()) $this->enabled = false;
     	}
 
@@ -114,7 +133,12 @@ function omnicard_init() {
 				$icon = array();
 				if($this->settings['method_ideal'] == 'yes') $icon[] = $this->icon_image('ideal');
 				if($this->settings['method_bcmc'] == 'yes') $icon[] = $this->icon_image('mistercash');
-				$icons = implode(" ", $icon);
+				if($this->settings['method_visa'] == 'yes') $icon[] = $this->icon_image('visa');
+				if($this->settings['method_master'] == 'yes') $icon[] = $this->icon_image('mastercard');
+				if($this->settings['method_vpay'] == 'yes') $icon[] = $this->icon_image('vpay');
+				if($this->settings['method_maestro'] == 'yes') $icon[] = $this->icon_image('maestro');
+				if($this->settings['method_minitix'] == 'yes') $icon[] = $this->icon_image('minitix');
+				$icons = implode(" ", array_reverse($icon));
 			}
 
 			return $icons;
@@ -133,7 +157,7 @@ function omnicard_init() {
 			if(file_exists($this->uploadloc['basedir'].'/omnicard-'.$brand.'.png')) {
 				$icon = '<img src="'.$this->uploadloc['baseurl'].'/omnicard-'.$brand.'.png" alt="'.$brand.'" />';
 			} else {
-				$icon = '<img src="'.$this->pluginloc.'/omnicard-lite/images/'.$brand.'.png" alt="'.$brand.'" />';
+				$icon = '<img src="'.$this->pluginloc.'/omnicard/images/'.$brand.'.png" alt="'.$brand.'" />';
 			}
 			
 			return $icon;
@@ -152,22 +176,71 @@ function omnicard_init() {
 			$status = '';
 			if(isset($_GET['status'])) $status = $_GET['status'];
 		
+			$omnicard_activate = get_option('omnicard_activate');
 	    	?>
-	    	<h2>OmniCard Lite <?php _e('for', 'omnicard'); ?> Rabo Omnikassa</h2>
+	    	<h2>OmniCard <?php _e('for', 'omnicard'); ?> Rabo Omnikassa</h2>
 
-			<?php if(get_woocommerce_currency() != "EUR") {
-				echo '<div class="error"><p>'. __('iDEAL and Bancontact/Mister Cash can only accept payments in Euros. Your store uses: ', 'omnicard') . get_woocommerce_currency() . '.</p></div>';
+			<?php if($status > 0) omnicard_status($status); ?>
+			<?php if(($this->method_ideal == "yes" || $this->method_bcmc == "yes" || $this->method_minitix == "yes") && get_woocommerce_currency() != "EUR") {
+				echo '<div id="message" class="error"><p>'. __('iDEAL, Mister Cash and MiniTix can only accept payments in Euros. Your store uses: ', 'omnicard') . get_woocommerce_currency() . '.</p></div>';
 			}
 			?>
 			
-	    	<p><?php _e("Accept iDEAL and Bancontact/Mister Cash payments through the Rabobank Omnikassa Gateway.", "omnicard"); ?><br />
-	    	<?php _e("This plugin requires an activated Omnikassa Agreement with the Rabobank. Fees for usage apply!", "omnicard"); ?> 
-	    	<?php _e("Visit the", "omnicard"); ?> <a href="https://www.rabobank.nl/omnikassa/" target="_blank">Rabo Omnikassa</a> <?php _e("website for more information.", "omnicard"); ?></p>
-	    	<?php _e("Once you've used up your 50 transactions, the gateway will temporary disable until a new month starts.", "omnicard"); ?></p>
+	    	<p><?php _e('Accept iDEAL, Mister Cash, MiniTix, Visa Card, MasterCard, V-PAY and Maestro payments through the Rabobank Omnikassa Gateway.', 'omnicard'); ?><br />
+	    	<?php _e('This plugin requires an activated Omnikassa Agreement with the Rabobank. Fees for usage apply!', 'omnicard'); ?><br />
+	    	<?php _e('Visit the', 'omnicard'); ?> <a href="http://www.rabobank.nl/omnikassa/" target="_blank">Rabo Omnikassa</a> <?php _e('website for more information.', 'omnicard'); ?></p>
 
-			<?php
-   			$this->generate_settings_html();
+			<?php if(!empty($this->beta)) echo '<p>You are using OmniCard Beta: <strong>' . $this->version.$this->beta . '</strong></p>'; ?>
 
+	    	<table class="form-table">
+	    	<?php
+	    		if($this->currency_is_valid()) {
+	    			$this->generate_settings_html();
+	    		} else {
+	    		?>
+           		<div class="inline error"><p><strong><?php _e('Gateway Disabled', 'omnicard'); ?></strong>: Rabo Omnikassa <?php _e('does not support your store currency.', 'omnicard'); ?></p></div>
+	       		<?php
+	    		}
+	    	?>
+			</table>
+
+	  		<h4><?php _e('OmniCard License', 'omnicard'); ?></h4>
+			<?php wp_nonce_field('omnicard-license','omnicard_license'); ?>
+
+	    	<table class="form-table">
+
+				<tr>
+					<th valign="top"><?php _e('License Type', 'omnicard'); ?></th>
+					<td>
+						<?php echo ($omnicard_activate['type'] != '') ? $omnicard_activate['type'] : __('Not activated', 'omnicard'); ?></br>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top"><?php _e('License Key', 'omnicard'); ?></th>
+					<td>
+						<input name="omnicard_license_key" type="text" class="search-input" size="50" value="<?php echo $omnicard_activate['key']; ?>" autocomplete="off" <?php echo ($omnicard_activate['status'] == 1) ? 'disabled' : ''; ?> /> <span class="description"><?php _e('You can find the license key in your purchase email.', 'omnicard'); ?></span>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top"><?php _e('License Email', 'omnicard'); ?></th>
+					<td>
+						<input name="omnicard_license_email" type="text" class="search-input" size="50" value="<?php echo $omnicard_activate['email']; ?>" autocomplete="off" <?php echo ($omnicard_activate['status'] == 1) ? 'disabled' : ''; ?> /> <span class="description"><?php _e('The email address you used when purchasing.', 'omnicard'); ?></span>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">&nbsp;</th>
+					<td>
+						<?php if($omnicard_activate['status'] == 0) { ?>
+						<input type="submit" id="post-role-submit" name="omnicard_license_activate" value="<?php _e('Activate', 'omnicard'); ?>" class="button-secondary" />
+						<?php } else { ?>
+						<input type="submit" id="post-role-submit" name="omnicard_license_deactivate" value="<?php _e('De-activate', 'omnicard'); ?>" class="button-secondary" />
+						<?php } ?><br />
+					</td>
+				</tr>
+
+			</table>
+	    
+	    	<?php
 	    	omnicard_credits();
 	    }
 
@@ -196,21 +269,21 @@ function omnicard_init() {
 					'title' => __('Title', 'omnicard'),
 					'type' => 'text',
 					'description' => __('The title which the user sees during checkout; Make sure it matches your payment methods.', 'omnicard'),
-					'default' => 'iDEAL or Bancontact/Mister Cash',
+					'default' => 'Credit Card, iDEAL, MiniTix, V-PAY, Mister Cash',
 					'css' => 'width:400px;'
 				),
 				'description' => array(
 					'title' => __('Description', 'omnicard'),
 					'type' => 'textarea',
 					'description' => __('The description which the user sees during checkout; Make sure it matches your payment methods.', 'omnicard'),
-					'default' => 'Pay securely with iDeal through Rabo Omnikassa.',
+					'default' => 'Pay securely with your Credit Card, V-PAY, iDeal, Mister Cash or MiniTix through Rabo Omnikassa.',
 					'css' => 'width:400px;'
 				),
 				'checkout_icon' => array(
 					'title' => __('Icon', 'omnicard'),
 					'type' => 'checkbox',
 					'label' => __('Show payment icons in the gateway selection box', 'omnicard'),
-					'description' => __('Place your own logo sized approximately 32*32px in <code>wp-content/uploads/</code> named <code>omnicard-ideal.png</code>.', 'omnicard'),
+					'description' => __('Place your own logos sized approximately 32*32px in <code>wp-content/uploads/</code> named <code>omnicard-(ideal|visa|mastercard|maestro|minitix|vpay|mistercash).png</code>.', 'omnicard') . '<br />' . __('For iDEAL use: <code>wp-content/uploads/omnicard-ideal.png</code> to replace the default logo.', 'omnicard'),
 					'default' => 'yes'
 				),
 
@@ -258,8 +331,43 @@ function omnicard_init() {
 				'method_bcmc' => array(
 					'title' => __('Bancontact/Mister Cash', 'omnicard'),
 					'type' => 'checkbox',
-					'label' => __('Receive Bancontact/Mister Cash payments', 'omnicard'),
+					'label' => __('Receive Bancontact Mister Cash payments', 'omnicard'),
 					'description' => __('Instant bank transfer. Available to Belgian ATM Card holders.', 'omnicard'),
+					'default' => 'no'
+				),
+				'method_visa' => array(
+					'title' => __('Visa Card', 'omnicard'),
+					'type' => 'checkbox',
+					'label' => __('Receive Visa Card Payments', 'omnicard'),
+					'description' => __('International payments. Available worldwide.', 'omnicard'),
+					'default' => 'no'
+				),
+				'method_master' => array(
+					'title' => __('MasterCard', 'omnicard'),
+					'type' => 'checkbox',
+					'label' => __('Receive MasterCard Payments', 'omnicard'),
+					'description' => __('International payments. Available worldwide.', 'omnicard'),
+					'default' => 'no'
+				),
+				'method_vpay' => array(
+					'title' => __('V-PAY', 'omnicard'),
+					'type' => 'checkbox',
+					'label' => __('Receive V-PAY Payments', 'omnicard'),
+					'description' => __('European Debit Card. Available in Europe.', 'omnicard'),
+					'default' => 'no'
+				),
+				'method_maestro' => array(
+					'title' => __('Maestro', 'omnicard'),
+					'type' => 'checkbox',
+					'label' => __('Receive Maestro Payments', 'omnicard'),
+					'description' => __('Direct bank transfer. Available in Europe.', 'omnicard'),
+					'default' => 'no'
+				),
+				'method_minitix' => array(
+					'title' => __('MiniTix', 'omnicard'),
+					'type' => 'checkbox',
+					'label' => __('Receive MiniTix Payments', 'omnicard'),
+					'description' => __('Online wallet for payments up to &euro; 150 Euros. Available to Dutch bank accounts only.', 'omnicard'),
 					'default' => 'no'
 				),
 				'method_default' => array(
@@ -268,10 +376,13 @@ function omnicard_init() {
 				     'type' => 'select',
 				     'options' => array(
 				          'ideal' => 'iDeal',
-				          'bcmc' => 'Mister Cash'
+				          'bcmc' => 'Mister Cash',
+				          'creditcard' => 'Visa or MasterCard',
+				          'vpay' => 'V-PAY',
+				          'maestro' => 'Maestro',
+				          'minitix' => 'MiniTix'
 				     )
 				),
-
 
 				// MISC SETTINGS
 				'misc_settings' => array(
@@ -292,7 +403,7 @@ function omnicard_init() {
 					'title' => __('Expiration', 'omnicard'),
 					'type' => 'select',
 					'description' => __('For added security you can add a timeout to the transaction. The transaction must be completed within this timeframe or the request will expire and has to be started over again.', 'omnicard'),
-					'default' => '7200',
+					'default' => '21600',
 					'options' => array(
 						'0' => __('Disable', 'omnicard'),
 						'7200' => __('2 hours (Default)', 'omnicard'),
@@ -302,7 +413,6 @@ function omnicard_init() {
 						'57600' => __('16 hours', 'omnicard'),
 						'86400' => __('24 hours', 'omnicard')
 					)
-
 				),
 				'invoice_prefix' => array(
 					'title' => __('Invoice Prefix', 'omnicard'),
@@ -311,7 +421,7 @@ function omnicard_init() {
 					'default' => 'wc'
 				),
 
-				// TESTING AND DEBUGGING
+				// TEST MODE AND DEBUGGING
 				'testing' => array(
 					'title' => __('Gateway Testing', 'omnicard'),
 					'type' => 'title'
@@ -342,13 +452,13 @@ function omnicard_init() {
 		 Since:		1.0
 		-------------------------------------------------------------*/
 		protected function order_args($order_id, $brand) {
-	
+
 			$order = new WC_Order($order_id);
 	
 			if($this->debugger=='yes') $this->log->add('omnicard', 'Generating payment data for order #' . $order_id . '.');
 
 			if($this->testmode == 'yes') {
-				$merchantID = $this->testmerchant;
+				$merchantID = $this->merchantiddemo;
 				$keyVersion = $this->keyversiondemo;
 			} else {
 				$merchantID = $this->merchantid;
@@ -358,6 +468,11 @@ function omnicard_init() {
 			// Define Payment Methods
 			$brandList = array();
 			if($this->method_ideal == "yes" && ($brand == 1 || $brand == 0)) $brandList[] = 'IDEAL';
+			if($this->method_bcmc == "yes" && ($brand == 5 || $brand == 0)) $brandList[] = 'BCMC';
+			if(($this->method_visa == "yes" || $this->method_master == "yes") && ($brand == 2 || $brand == 0)) $brandList[] = 'VISA,MASTERCARD';
+			if($this->method_vpay == "yes" && ($brand == 6 || $brand == 0)) $brandList[] = 'VPAY';
+			if($this->method_maestro == "yes" && ($brand == 3 || $brand == 0)) $brandList[] = 'MAESTRO';
+			if($this->method_minitix == "yes" && ($brand == 4 || $brand == 0)) $brandList[] = 'MINITIX';
 			$brands = implode(',', $brandList);
 
 			// Omnikassa Args
@@ -399,6 +514,7 @@ function omnicard_init() {
 		 Since:		1.1
 		-------------------------------------------------------------*/
 	    public function payment_fields() {
+			
 			$output = '';
 			if($this->description) $output .= '<p>' . $this->description . '</p>';
 
@@ -410,6 +526,22 @@ function omnicard_init() {
 			if($this->settings['method_bcmc'] == 'yes') {
 				$active++;
 				$method = 5;
+			}
+			if($this->settings['method_visa'] == 'yes' || $this->settings['method_master'] == 'yes') {
+				$active++;
+				$method = 2;
+			}
+			if($this->settings['method_vpay'] == 'yes') {
+				$active++;
+				$method = 6;
+			}
+			if($this->settings['method_maestro'] == 'yes') {
+				$active++;
+				$method = 3;
+			}
+			if($this->settings['method_minitix'] == 'yes') {
+				$active++;
+				$method = 4;
 			}
 			
 			if($active > 1) {
@@ -424,13 +556,38 @@ function omnicard_init() {
 					if($this->method_default == 'bcmc') $output .= ' checked="checked"';
 					$output .= ' /> <label for="bcmc">' . __('Bancontact/Mister Cash', 'omnicard') . '</label><br />';
 				}
+				if($this->settings['method_visa'] == 'yes' || $this->settings['method_master'] == 'yes') {
+					$output .= '<input type="radio" id="creditcard" name="omnicard_submethod" value="2"';
+					if($this->method_default == 'creditcard') $output .= ' checked="checked"';
+					$output .= ' /> <label for="creditcard">';
+					if($this->settings['method_visa'] == 'yes' && $this->settings['method_master'] == 'yes') $output .= __('Visa or MasterCard', 'omnicard');
+					if($this->settings['method_visa'] == 'yes' && $this->settings['method_master'] == 'no') $output .= __('Visa Card', 'omnicard');
+					if($this->settings['method_visa'] == 'no' && $this->settings['method_master'] == 'yes') $output .= __('MasterCard', 'omnicard');
+					$output .= '</label><br />';
+				}
+				if($this->settings['method_vpay'] == 'yes') {
+					$output .= '<input type="radio" id="vpay" name="omnicard_submethod" value="6"';
+					if($this->method_default == 'vpay') $output .= ' checked="checked"';
+					$output .= ' /> <label for="vpay">' . __('V-PAY', 'omnicard') . '</label><br />';
+				}
+				if($this->settings['method_maestro'] == 'yes') {
+					$output .= '<input type="radio" id="maestro" name="omnicard_submethod" value="3"';
+					if($this->method_default == 'maestro') $output .= ' checked="checked"';
+					$output .= ' /> <label for="maestro">' . __('Maestro', 'omnicard') . '</label><br />';
+				}
+				if($this->settings['method_minitix'] == 'yes') {
+					$output .= '<input type="radio" id="minitix" name="omnicard_submethod" value="4"';
+					if($this->method_default == 'minitix') $output .= ' checked="checked"';
+					$output .= ' /> <label for="minitix">' . __('MiniTix', 'omnicard') . '</label><br />';
+				}			
 				$output .= '</p>';
-			} else {
+			} else if($active == 1) {
 				$output .= '<input type="hidden" name="omnicard_submethod" value="'. $method .'" />';
+			} else {
+				$output .= '<p>'.__('No payment methods activated - Check your settings or contact your administrator!', 'omnicard').'</p>';
 			}
-
 			echo $output;
-			unset($transactions, $active, $method, $output);
+			unset($active, $method, $output);
 		}
 
 		/*-------------------------------------------------------------
@@ -469,13 +626,13 @@ function omnicard_init() {
 	
 			if($this->testmode == 'yes') {
 				$omni_address = $this->testurl . '?';
-				$secretKey = $this->testkey;
+				$secretKey = $this->secretkeydemo;
 			} else {
 				$omni_address = $this->liveurl . '?';
 				$secretKey = $this->secretkey;
 			}
 	
-			$submethod = get_post_meta($order_id, 'Payment Submethod', 1);
+			$submethod = get_post_meta($order_id, 'Payment brand', 1);
 			if(!is_numeric($submethod) && ($submethod < 1 || $submethod > 6)) {
 				$submethod = 0;
 			}
@@ -532,15 +689,12 @@ function omnicard_init() {
 		
 		 Purpose:   Make sure the shop uses Euros for currency
 		 Receive:   - None -
-		 Return:    Boolean
+		 Return:    - None -
 		 Since:		1.0
 		-------------------------------------------------------------*/
 	    private function currency_is_valid() {
-	        if(get_woocommerce_currency() != 'EUR') {
-	        	return false;
-	        } else {
-		        return true;
-			}
+	        if(!in_array(get_woocommerce_currency(), array('AUD', 'CAD', 'DKK', 'EUR', 'GBP', 'JPY', 'NOK', 'SEK', 'USD', 'CHF'))) return false;
+	        return true;
 	    }
 
 		/*-------------------------------------------------------------
@@ -597,7 +751,7 @@ function omnicard_init() {
 		
 		 Purpose:   Validate PSP response
 		 Receive:   - None -
-		 Return:    Array/Boolean
+		 Return:    - None -
 		 Since:		1.0
 		-------------------------------------------------------------*/
 		protected function check_psp_request_is_valid() {
@@ -610,12 +764,12 @@ function omnicard_init() {
 	        	'body' 			=> 'Hello',
 	        	'sslverify' 	=> true,
 	        	'timeout' 		=> 15,
-	        	'user-agent'	=> 'Omnicard/AJdG_Solutions'
+	        	'user-agent'	=> 'Omnicard/'.$this->version
 	        );
 	
 			if($this->testmode == 'yes') {
 				$omni_address = $this->testurl;
-				$secretKey = $this->testkey;
+				$secretKey = $this->secretkeydemo;
 			} else {
 				$omni_address = $this->liveurl;
 				$secretKey = $this->secretkey;
@@ -727,17 +881,17 @@ function omnicard_init() {
 	            	if($localReference != $omniReference) { // Check order ID
 	            		if($this->debugger == 'yes') $this->log->add('omnicard', 'ID Mismatch: Order #' . $localReference . ' stored.  PSP provided: ' . $omniReference);
 						$order->update_status('on-hold', sprintf(__('Issue with reference code. Should be: %s. PSP provided: %s.', 'omnicard'), $localReference, $omniReference));
-	            		wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
+						wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
 						exit;
 	            	}
 
 	            	// Check valid type and brand
 	            	$accepted_types = array('CREDIT_TRANSFER', 'CARD', 'OTHER', 'Omnikassa');
-	            	$accepted_brands = array('IDEAL', 'VISA', 'MASTERCARD', 'MAESTRO', 'MINITIX', 'Rabobank');
+	            	$accepted_brands = array('IDEAL', 'BCMC', 'VISA', 'MASTERCARD', 'VPAY', 'MAESTRO', 'MINITIX', 'Rabobank');
 					if(!in_array($omniType, $accepted_types) || !in_array($omniBrand, $accepted_brands)) {
 						if($this->debugger == 'yes') $this->log->add('omnicard', 'Aborting, Invalid type or brand. Response from PSP - Type :' . $omniType . ', Brand: ' . $omniBrand . '.');
 				    	$order->update_status('on-hold', sprintf(__('Issue with payment type or brand. Response from PSP - Type: %s, Brand: %s.', 'omnicard'), $omniType, $omniBrand));
-	            		wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
+						wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
 						exit;
 					}
 					
@@ -746,7 +900,7 @@ function omnicard_init() {
 				    	$omniAmountDec = number_format($omniAmount, get_option('woocommerce_price_num_decimals'), get_option('woocommerce_price_decimal_sep'), get_option('woocommerce_price_thousand_sep'));
 				    	if($this->debugger == 'yes') $this->log->add('omnicard', 'Payment error: Amounts do not match (gross ' . $omniAmountDec . ').');
 				    	$order->update_status('on-hold', sprintf(__('Validation error: PSP amounts do not match with original order (gross %s).', 'omnicard'), $omniAmountDec));
-	            		wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
+						wp_redirect(add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, esc_url($order->get_checkout_payment_url()))));
 				    	exit;
 				    }
 
@@ -754,12 +908,6 @@ function omnicard_init() {
 	                $order->add_order_note(__('PSP payment completed', 'omnicard'));
 	                $order->payment_complete();
 
-					// Transaction limit
-               		$transactions = get_option('omnicard_count');
-               		$new = $transactions['count']+1;
-               		update_option('omnicard_count', array('count' => $new, 'month' => $transactions['month']));
-
-	                if($this->debugger=='yes') $this->log->add('omnicard', 'Transaction '.$new.' out of 50.');
 	                if($this->debugger=='yes') $this->log->add('omnicard', 'Payment complete.');
 
 				} elseif(strcmp($omniStatus, 'PENDING') === 0) {
@@ -827,8 +975,8 @@ function omnicard_credits() {
 	echo '<tbody>';
 	echo '<tr>';
 	echo '<td style="border-left:1px #ddd solid;" width="25%"><ul>';
-	echo '	<li><a href="https://ajdg.solutions/products/omnicard/?utm_source=omnicard_lite&utm_medium=omnicard_credits&utm_campaign=omnicard_link" target="_blank">'.__('OmniCard website', 'omnicard').'</a></li>';
-	echo '	<li><a href="https://ajdg.solutions/products/adrotate-for-wordpress/?utm_source=omnicard_lite&utm_medium=omnicard_credits&utm_campaign=adrotate_link" target="_blank">'.__('AdRotate for Wordpress website', 'omnicard').'</a></li>';
+	echo '	<li><a href="https://ajdg.solutions/products/omnicard/?utm_source=omnicard&utm_medium=omnicard_credits&utm_campaign=omnicard_link" target="_blank">'.__('OmniCard page', 'omnicard').'</a></li>';
+	echo '	<li><a href="https://ajdg.solutions/products/adrotate-for-wordpress/?utm_source=omnicard&utm_medium=omnicard_credits&utm_campaign=adrotate_link" target="_blank">'.__('AdRotate for Wordpress page', 'omnicard').'</a></li>';
 	echo '	<li><a href="http://meandmymac.net/" target="_blank">'.__('My blog and website', 'omnicard').'</a></li>';
 	echo '</ul></td>';
 	echo '<td style="border-left:1px #ddd solid;" width="25%"><ul>';
@@ -838,8 +986,8 @@ function omnicard_credits() {
 	echo '</ul></td>';
 
 	echo '<td style="border-left:1px #ddd solid;"><ul>';
-	echo '	<li><a href="https://ajdg.solutions/?utm_source=omnicard_lite&utm_medium=omnicard_credits&utm_campaign=ajdg_link" title="AJdG Solutions"><img src="'.plugins_url().'/omnicard-lite/images/ajdg-logo-100x60.png" alt="ajdg-logo-100x60" width="100" height="60" align="left" style="padding: 0 10px 10px 0;" /></a>';
-	echo '	<a href="https://ajdg.solutions/?utm_source=omnicard_lite&utm_medium=omnicard_credits&utm_campaign=ajdg_link" title="AJdG Solutions">AJdG Solutions</a> - '.__('Your one stop for Webdevelopment, consultancy and anything WordPress! When you need a custom plugin, theme customizations or have your site moved/migrated entirely. Find out more about what I can do for you on my website!', 'omnicard').' '.__('Visit the', 'omnicard').' <a href="https://ajdg.solutions/?utm_source=omnicard_lite&utm_medium=omnicard_credits&utm_campaign=ajdg_link" target="_blank">AJdG Solutions</a> '.__('website', 'omnicard').'.</li>';
+	echo '	<li><a href="https://ajdg.solutions/?utm_source=omnicard&utm_medium=omnicard_credits&utm_campaign=omnicard_link" title="AJdG Solutions"><img src="'.plugins_url().'/omnicard-lite/images/ajdg-logo-100x60.png" alt="ajdg-logo-100x60" width="100" height="60" align="left" style="padding: 0 10px 10px 0;" /></a>';
+	echo '	<a href="https://ajdg.solutions/?utm_source=omnicard&utm_medium=omnicard_credits&utm_campaign=omnicard_link" title="AJdG Solutions">AJdG Solutions</a> - '.__('Your one stop for Webdevelopment, consultancy and anything WordPress! When you need a custom plugin, theme customizations or have your site moved/migrated entirely. Find out more about what I can do for you on my website!', 'omnicard').' '.__('Visit the', 'omnicard').' <a href="https://ajdg.solutions/?utm_source=omnicard&utm_medium=omnicard_credits&utm_campaign=omnicard_link" target="_blank">AJdG Solutions</a> '.__('website', 'omnicard').'.</li>';
 	echo '</ul></td>';
 	echo '</tr>';
 	echo '</tbody>';
@@ -848,25 +996,111 @@ function omnicard_credits() {
 }
 
 /*-------------------------------------------------------------
+ Name:      omnicard_return
+
+ Purpose:   Internal redirects
+ Receive:   $page, $status
+ Return:    -none-
+ Since:		3.8.5
+-------------------------------------------------------------*/
+function omnicard_return($page, $status) {
+
+	if(strlen($page) > 0 AND ($status > 0 AND $status < 1000)) {
+		$redirect = 'admin.php?page=wc-settings&tab=checkout&section=' . $page . '&status='.$status;
+	} else {
+		$redirect = 'admin.php?page=wc-settings&tab=checkout&section=wc_gateway_omnicard';
+	}
+
+	wp_redirect($redirect);
+
+}
+
+/*-------------------------------------------------------------
+ Name:      omnicard_status
+
+ Purpose:   Internal redirects
+ Receive:   $status
+ Return:    -none-
+ Since:		3.8.5
+-------------------------------------------------------------*/
+function omnicard_status($status) {
+
+	switch($status) {
+		// Licensing
+		case '600' :
+			echo '<div id="message" class="error"><p>'. __('Invalid request', 'omnicard') .'</p></div>';
+		break;
+
+		case '601' :
+			echo '<div id="message" class="error"><p>'. __('No license key or email provided', 'omnicard') .'</p></div>';
+		break;
+
+		case '602' :
+			echo '<div id="message" class="error"><p>'. __('No valid response from license server. Contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '603' :
+			echo '<div id="message" class="error"><p>'. __('The email provided is invalid. If you think this is not true please contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '604' :
+			echo '<div id="message" class="error"><p>'. __('Invalid license key. If you think this is not true please contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '605' :
+			echo '<div id="message" class="error"><p>'. __('The purchase matching this product is not complete. Contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '606' :
+			echo '<div id="message" class="error"><p>'. __('No remaining activations for this license. If you think this is not true please contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '607' :
+			echo '<div id="message" class="error"><p>'. __('Could not (de)activate key. Contact support.', 'omnicard') .'</p></div>';
+		break;
+
+		case '608' :
+			echo '<div id="message" class="updated"><p>'. __('Thank you. Your license is now active', 'omnicard') .'</p></div>';
+		break;
+
+		case '609' :
+			echo '<div id="message" class="updated"><p>'. __('Thank you. Your license is now de-activated', 'omnicard') .'</p></div>';
+		break;
+
+		case '610' :
+			echo '<div id="message" class="updated"><p>'. __('Thank you. Your licenses have been reset', 'omnicard') .'</p></div>';
+		break;
+
+	}
+}
+
+/*-------------------------------------------------------------
+ Name:      omnicard_nonce_error
+
+ Purpose:   Display a formatted error if Nonce fails
+ Since:		1.0
+-------------------------------------------------------------*/
+function omnicard_nonce_error() {
+	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'omnicard').'</h2>';
+	echo '	<p style="text-align: center;">'.__('WordPress was unable to verify the authenticity of the url you have clicked. Verify if the url used is valid or log in via your browser.', 'omnicard').'</p>';
+	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are being tricked!', 'omnicard').'</p>';
+	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'omnicard').' <a href="https://ajdg.solutions/support/?utm_source=omnicard&utm_medium=omnicard_nonce_error&utm_campaign=support" title="AJdG Solutions Support" target="_blank">AJdG Solutions Support</a>.</p>';
+}
+
+/*-------------------------------------------------------------
  Name:      omnicard_activate
 
- Purpose:   Set up firstrun status
+ Purpose:   Set up licensing and firstrun status
  Since:		1.0
 -------------------------------------------------------------*/
 function omnicard_activate() {
 	if(!current_user_can('activate_plugins')) {
-		deactivate_plugins(plugin_basename('omnicard.php'));
+		deactivate_plugins(plugin_basename('omnicard/omnicard.php'));
 		wp_die('You do not have appropriate access to activate this plugin! Contact your administrator!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to plugins</a>.'); 
 		return; 
 	} else {
 		// Set default settings and values
-		$transactions = get_option('omnicard_count');
-		if(!$transactions) {
-			$c = 0;
-		} else {
-			$c = $transactions['count'];
-		}
-		update_option('omnicard_count', array('count' => $c, 'month' => mktime(0, 0, 0, date("m"), 1, date("Y"))));
+		add_option('omnicard_activate', array('status' => 0, 'instance' => '', 'activated' => '', 'deactivated' => '', 'type' => '', 'key' => '', 'email' => '', 'version' => '', 'firstrun' => 1));
 	}
 }
 
@@ -877,51 +1111,22 @@ function omnicard_activate() {
  Since:		1.0
 -------------------------------------------------------------*/
 function omnicard_uninstall() {
-	// 42
-}
-
-/*-------------------------------------------------------------
- Name:      omnicard_dashboard_styles
-
- Purpose:   Load stylesheet
- Receive:   -None-
- Return:	-None-
- Since:		1.3.2
--------------------------------------------------------------*/
-function omnicard_dashboard_styles() {
-	wp_enqueue_style('omnicard-admin-stylesheet', plugins_url('library/dashboard.css', __FILE__));
+	delete_option('omnicard_activate');
 }
 
 /*-------------------------------------------------------------
  Name:      omnicard_notifications_dashboard
 
- Purpose:   Promote Full version, count transactions
- Since:		1.3.2
+ Purpose:   Tell user to register copy
+ Since:		1.0
 -------------------------------------------------------------*/
 function omnicard_notifications_dashboard() {
-	if(isset($_GET['section'])) { $page = $_GET['section']; } else { $page = ''; }
+	$license = get_option('omnicard_activate');
 
-	if($page == 'wc_gateway_omnicard') {
-		$transactions = get_option('omnicard_count');
-
-		echo '<div class="updated" style="padding: 0; margin: 0; border-left: none;">';
-		echo '	<div class="omnicard_banner">';
-		echo '		<div class="button_div">';
-		echo '			<a class="button" target="_blank" href="https://ajdg.solutions/products/omnicard/?utm_source=omnicard_lite&utm_medium=omnicard_banner&utm_campaign=upgrade_omnicard">'.__('Learn More', 'omnicard').'</a>';
-		echo '		</div>';
-
-		if($transactions['count'] >= 50) {
-			echo '		<div class="text">'.__("You've used up your 50 transactions for this month in <strong>OmniCard iDeal</strong>. To get <strong>UNLIMITED</strong> transactions per month, upgrade to the full version of OmniCard", 'omnicard').'?<br />';
-			echo '			<span>'.__("In the full version you can also accept payments through Visa, Mastercard, Maestro and MiniTix.", "omnicard").' '.__('Thank you for your consideration!', 'omnicard' ).'</span>';
-			echo '		</div>';
-		} else {
-			echo '		<div class="text">'.__("You have used", "omnicard").' <strong>'.$transactions['count'].'</strong> '.__("out of 50 transactions this month. Remove this limitation with the <strong>FULL</strong> version of OmniCard", 'omnicard').'!<br />';
-			echo '			<span>'.__("In the full version you can also accept payments through Visa, Mastercard, Maestro and MiniTix.", "omnicard").' '.__('Thank you for your consideration!', 'omnicard' ).'</span>';
-			echo '		</div>';
-		}
-
-		echo '	</div>';
-		echo '</div>';
+	if($license['firstrun'] == 1) {
+		echo '<div class="updated"><p>' . __('Register your copy of OmniCard.', 'omnicard').' <a href="admin.php?page=wc-settings&tab=checkout&section=wc_gateway_omnicard" class="button">'.__('Register OmniCard', 'omnicard').'</a></p></div>';
+		update_option('omnicard_activate', array('status' => 0, 'instance' => '', 'activated' => '', 'deactivated' => '', 'type' => '', 'key' => '', 'email' => '', 'version' => '', 'firstrun' => 0));
 	}
 }
+
 ?>
