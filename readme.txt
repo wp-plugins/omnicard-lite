@@ -1,6 +1,6 @@
 === OmniCard Lite ===
 Contributors: adegans
-Donate link: http://meandmymac.net/donate/?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=donatelink
+Donate link: http://meandmymac.net/donate/?pk_campaign=omnicardlite-readme&pk_kwd=donatelink
 Tags: ecommerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, woocommerce, plugin, admin, payment, ideal, visa, mastercard, minitix, maestro, bancontact, mister cash, rabobank, omnikassa, bank, api, secure, betalen, betaalplugin, payment, gateway
 Requires at least: 3.5, WooCommerce 2.1
 Tested up to: 4.1.2
@@ -59,7 +59,7 @@ Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dash
 = 1.0 =
 * First public release
 
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=upgrade_omnicard).
+NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=upgrade_omnicard).
 
 == Upgrade Notice ==
 
@@ -67,16 +67,16 @@ NOTE: This is a Lite version of OmniCard, certain limitations are in place. If y
 * Updated ajdg.solutions links
 * Updated Dutch translation
 
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=upgrade_omnicard).
+NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=upgrade_omnicard).
 
 == Frequently Asked Questions ==
 
-Take a look at the [OmniCard page](https://ajdg.solutions/products/omnicard/?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=omnicard_faq).
+Take a look at the [OmniCard page](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_faq).
 
 == Screenshots ==
 
-See some screenshots on the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=omnicard_screenshots).
+See some screenshots on the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_screenshots).
 
 == Changelog ==
 
-Check out the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=wordpress.org-omnicardlite_readme&pk_kwd=omnicard_changelog).
+Check out the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_changelog).
