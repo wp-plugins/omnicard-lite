@@ -1,0 +1,602 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Omnicard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-25 23:26+0200\n"
+"PO-Revision-Date: 2015-09-25 23:26+0200\n"
+"Last-Translator: Arnan de Gans <info@ajdg.net>\n"
+"Language-Team: Arnan de Gans from AJdG Solutions <info@ajdg.net>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: omnicard.php:156
+msgid "for"
+msgstr ""
+
+#: omnicard.php:159
+msgid ""
+"iDEAL and Bancontact/Mister Cash can only accept payments in Euros. Your "
+"store uses: "
+msgstr ""
+
+#: omnicard.php:163
+msgid ""
+"Accept iDEAL and Bancontact/Mister Cash payments through the Rabobank "
+"Omnikassa Gateway."
+msgstr ""
+
+#: omnicard.php:164
+msgid ""
+"This plugin requires an activated Omnikassa Agreement with the Rabobank. "
+"Fees for usage apply!"
+msgstr ""
+
+#: omnicard.php:165
+msgid "Visit the"
+msgstr ""
+
+#: omnicard.php:165
+msgid "website for more information."
+msgstr ""
+
+#: omnicard.php:166
+msgid ""
+"Once you've used up your 20 transactions, the gateway will temporary disable "
+"until a new month starts."
+msgstr ""
+
+#: omnicard.php:186
+msgid "Basic Settings"
+msgstr ""
+
+#: omnicard.php:190
+msgid "Enable/Disable"
+msgstr ""
+
+#: omnicard.php:192
+msgid "Enable the Rabo Omnikassa Gateway"
+msgstr ""
+
+#: omnicard.php:196
+msgid "Title"
+msgstr ""
+
+#: omnicard.php:198
+msgid ""
+"The title which the user sees during checkout; Make sure it matches your "
+"payment methods."
+msgstr ""
+
+#: omnicard.php:203
+msgid "Description"
+msgstr ""
+
+#: omnicard.php:205
+msgid ""
+"The description which the user sees during checkout; Make sure it matches "
+"your payment methods."
+msgstr ""
+
+#: omnicard.php:210
+msgid "Icon"
+msgstr ""
+
+#: omnicard.php:212
+msgid "Show payment icons in the gateway selection box"
+msgstr ""
+
+#: omnicard.php:213
+msgid ""
+"Place your own logo sized approximately 32*32px in <code>wp-content/uploads/"
+"</code> named <code>omnicard-ideal.png</code>."
+msgstr ""
+
+#: omnicard.php:219
+msgid "Merchant Details"
+msgstr ""
+
+#: omnicard.php:221
+msgid ""
+"You can find your merchant details in 2 separate emails sent to you by the "
+"Rabobank after you signed your agreement."
+msgstr ""
+
+#: omnicard.php:224
+msgid "Merchant ID"
+msgstr ""
+
+#: omnicard.php:226 omnicard.php:233 omnicard.php:240
+msgid "This is needed in order to take payment."
+msgstr ""
+
+#: omnicard.php:231
+msgid "Secret Key"
+msgstr ""
+
+#: omnicard.php:238
+msgid "Key Version"
+msgstr ""
+
+#: omnicard.php:247
+msgid "Accepted Payment Methods"
+msgstr ""
+
+#: omnicard.php:249
+msgid ""
+"Each payment method requires approval from your bank and possibly an "
+"extension on your agreement with the Rabobank. Check with the Rabobank for "
+"details before activating new payment methods!"
+msgstr ""
+
+#: omnicard.php:252
+msgid "iDEAL"
+msgstr ""
+
+#: omnicard.php:254
+msgid "Receive iDEAL payments"
+msgstr ""
+
+#: omnicard.php:255
+msgid "Instant bank transfer. Available to Dutch ATM Card holders."
+msgstr ""
+
+#: omnicard.php:259 omnicard.php:425
+msgid "Bancontact/Mister Cash"
+msgstr ""
+
+#: omnicard.php:261
+msgid "Receive Bancontact/Mister Cash payments"
+msgstr ""
+
+#: omnicard.php:262
+msgid "Instant bank transfer. Available to Belgian ATM Card holders."
+msgstr ""
+
+#: omnicard.php:266
+msgid "Default payment option"
+msgstr ""
+
+#: omnicard.php:267
+msgid ""
+"Default selected option on checkout. The chosen option here must be active "
+"in your contract or no selection can be made! (Only applicable if you use "
+"multiple payment methods.)"
+msgstr ""
+
+#: omnicard.php:278
+msgid "Miscellaneous Settings"
+msgstr ""
+
+#: omnicard.php:282
+msgid "Language"
+msgstr ""
+
+#: omnicard.php:284
+msgid "Which language should the Rabobank Omnikassa Pages use for checkout."
+msgstr ""
+
+#: omnicard.php:287
+msgid "English"
+msgstr ""
+
+#: omnicard.php:288
+msgid "Dutch"
+msgstr ""
+
+#: omnicard.php:292
+msgid "Expiration"
+msgstr ""
+
+#: omnicard.php:294
+msgid ""
+"For added security you can add a timeout to the transaction. The transaction "
+"must be completed within this timeframe or the request will expire and has "
+"to be started over again."
+msgstr ""
+
+#: omnicard.php:297
+msgid "Disable"
+msgstr ""
+
+#: omnicard.php:298
+msgid "2 hours (Default)"
+msgstr ""
+
+#: omnicard.php:299
+msgid "4 hours"
+msgstr ""
+
+#: omnicard.php:300
+msgid "6 hours"
+msgstr ""
+
+#: omnicard.php:301
+msgid "8 hours"
+msgstr ""
+
+#: omnicard.php:302
+msgid "16 hours"
+msgstr ""
+
+#: omnicard.php:303
+msgid "24 hours"
+msgstr ""
+
+#: omnicard.php:308
+msgid "Invoice Prefix"
+msgstr ""
+
+#: omnicard.php:310
+msgid ""
+"Enter a prefix for your order numbers. Only alphanumeric characters allowed. "
+"If you use your Omnikassa account for multiple stores ensure this prefix is "
+"unqiue to avoid confusion."
+msgstr ""
+
+#: omnicard.php:310
+msgid ""
+"This prefix is NOT added to WooCommerce orders but is shown on your bank "
+"statements as part of the transaction reference."
+msgstr ""
+
+#: omnicard.php:316
+msgid "Gateway Testing"
+msgstr ""
+
+#: omnicard.php:320
+msgid "Simulator"
+msgstr ""
+
+#: omnicard.php:322
+msgid "Enable the Omnikassa test mode"
+msgstr ""
+
+#: omnicard.php:324
+msgid "You can leave your \"live\" account details in place."
+msgstr ""
+
+#: omnicard.php:327
+msgid "Troubleshooting"
+msgstr ""
+
+#: omnicard.php:329
+msgid "Enable logging"
+msgstr ""
+
+#: omnicard.php:331
+msgid ""
+"Log Omnikassa events, such as PSP requests and status updates, inside "
+"<code>wc-logs/omnicard-*.log</code>."
+msgstr ""
+
+#: omnicard.php:420
+msgid "iDeal"
+msgstr ""
+
+#: omnicard.php:496
+msgid ""
+"Thank you for your order. We are now redirecting you to Rabobank OmniKassa "
+"to make payment."
+msgstr ""
+
+#: omnicard.php:504
+msgid "Please click the button below to complete your purchase."
+msgstr ""
+
+#: omnicard.php:509
+msgid "Continue"
+msgstr ""
+
+#: omnicard.php:580
+msgid "Creditcard authorizationlimit exceeded."
+msgstr ""
+
+#: omnicard.php:581
+msgid "Card declined; Insufficient funds, expired or not active."
+msgstr ""
+
+#: omnicard.php:582
+msgid "Invalid Card or Authorization failed. Check your card details."
+msgstr ""
+
+#: omnicard.php:583
+msgid "Transaction cancelled by user."
+msgstr ""
+
+#: omnicard.php:584
+msgid ""
+"Awaiting response from gateway. If you place another order you may be billed "
+"more than once."
+msgstr ""
+
+#: omnicard.php:585
+msgid ""
+"You have exceeded the maximum of 3 attempts to enter your card number. "
+"Transaction aborted."
+msgstr ""
+
+#: omnicard.php:586
+msgid "CVC/Security code invalid or empty. Please try again."
+msgstr ""
+
+#: omnicard.php:587
+msgid "Unable to reach payment gateway."
+msgstr ""
+
+#: omnicard.php:588
+msgid "Exceeded time limit. Transaction aborted. Please try again."
+msgstr ""
+
+#: omnicard.php:589
+msgid "Payment gateway unavailable."
+msgstr ""
+
+#: omnicard.php:729
+#, php-format
+msgid "Issue with reference code. Should be: %s. PSP provided: %s."
+msgstr ""
+
+#: omnicard.php:739
+#, php-format
+msgid ""
+"Issue with payment type or brand. Response from PSP - Type: %s, Brand: %s."
+msgstr ""
+
+#: omnicard.php:748
+#, php-format
+msgid ""
+"Validation error: PSP amounts do not match with original order (gross %s)."
+msgstr ""
+
+#: omnicard.php:754
+msgid "PSP payment completed"
+msgstr ""
+
+#: omnicard.php:768
+msgid "Order set to PENDING. You can try again from your order through"
+msgstr ""
+
+#: omnicard.php:768
+msgid "Checkout"
+msgstr ""
+
+#: omnicard.php:768
+#, php-format
+msgid "Error: %s."
+msgstr ""
+
+#: omnicard.php:769
+#, php-format
+msgid ""
+"Awaiting %s payment. Order status changed to pending. Response from PSP: %s."
+msgstr ""
+
+#: omnicard.php:774
+msgid "Cancelled by user."
+msgstr ""
+
+#: omnicard.php:780
+msgid "Payment session EXPIRED remotely. Please contact support."
+msgstr ""
+
+#: omnicard.php:781
+msgid "Payment session EXPIRED via PSP."
+msgstr ""
+
+#: omnicard.php:786
+#, php-format
+msgid ""
+"Payment Method \"%s\" is not active for this shop. Response from PSP: %s."
+msgstr ""
+
+#: omnicard.php:791
+msgid "Payment session failed. Please contact support."
+msgstr ""
+
+#: omnicard.php:792
+#, php-format
+msgid "Payment session FAILED via PSP. Response from PSP: %s."
+msgstr ""
+
+#: omnicard.php:822
+msgid "Useful links"
+msgstr ""
+
+#: omnicard.php:823
+msgid "Get more bang for your buck"
+msgstr ""
+
+#: omnicard.php:824
+msgid "Brought to you by"
+msgstr ""
+
+#: omnicard.php:832
+msgid "Omnikassa for WooCommerce"
+msgstr ""
+
+#: omnicard.php:833
+msgid "AdRotate for Wordpress"
+msgstr ""
+
+#: omnicard.php:834
+msgid "Arnan de Gans"
+msgstr ""
+
+#: omnicard.php:838
+msgid "Omnikassa Website"
+msgstr ""
+
+#: omnicard.php:839
+msgid "Omnikassa Dashboard"
+msgstr ""
+
+#: omnicard.php:840
+msgid "Omnikassa Support"
+msgstr ""
+
+#: omnicard.php:844
+msgid ""
+"Upgrade to the full version of OmniCard Lite so you can accept credit cards "
+"and get <strong>10%</strong> off. Use coupon code <strong>getomnikassa</"
+"strong> on checkout!"
+msgstr ""
+
+#: omnicard.php:914
+msgid "Upgrade now!"
+msgstr ""
+
+#: omnicard.php:918
+msgid ""
+"You've used all 20 transactions for this month in <strong>OmniCard Lite</"
+"strong>. To get <strong>UNLIMITED</strong> transactions per month, upgrade "
+"to the full version."
+msgstr ""
+
+#: omnicard.php:919 omnicard.php:923
+#, php-format
+msgid ""
+"Also accept credit cards. Get 10% off with coupon <strong>getomnikassa</"
+"strong>. Upgrade today!"
+msgstr ""
+
+#: omnicard.php:919 omnicard.php:923
+msgid "Thank you for your purchase!"
+msgstr ""
+
+#: omnicard.php:922
+msgid "You have used"
+msgstr ""
+
+#: omnicard.php:922
+msgid ""
+"out of 20 transactions this month. Remove this limitation with the "
+"<strong>FULL</strong> version!"
+msgstr ""
+
+#, fuzzy
+#~ msgid "OmniCard License"
+#~ msgstr "OmniCard Licentie"
+
+#, fuzzy
+#~ msgid "License Type"
+#~ msgstr "OmniCard Licentie"
+
+#, fuzzy
+#~ msgid "License Key"
+#~ msgstr "Ongeldige licentie sleutel"
+
+#, fuzzy
+#~ msgid "License Email"
+#~ msgstr "OmniCard Licentie"
+
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "Activeer je licentie."
+
+#, fuzzy
+#~ msgid "De-activate"
+#~ msgstr "De-activeer deze licentie op alle sites"
+
+#~ msgid "De-activate all active keys on all sites"
+#~ msgstr "De-activeer deze licentie op alle sites"
+
+#~ msgid ""
+#~ "You are about to de-activate your license on ALL sites currently using "
+#~ "this License!"
+#~ msgstr ""
+#~ "Je staat op het punt om deze licentie voor alle sites waar deze actief is "
+#~ "te de-activeren!"
+
+#~ msgid "OK to continue, CANCEL to stop."
+#~ msgstr "OK om door te gaan. Annuleer om te stoppen."
+
+#~ msgid ""
+#~ "For iDEAL use: <code>wp-content/uploads/omnicard-ideal.png</code> to "
+#~ "replace the default logo."
+#~ msgstr ""
+#~ "Voor iDEAL gebruik: <code>wp-content/uploads/omnicard-ideal.png</code> om "
+#~ "het standaard icoon te vervangen"
+
+#~ msgid "Visa Card"
+#~ msgstr "Visa Card"
+
+#~ msgid "International payments. Available worldwide."
+#~ msgstr "Internationale betalingen, wereldwijd beschikbaar."
+
+#~ msgid "MasterCard"
+#~ msgstr "MasterCard"
+
+#~ msgid "Maestro"
+#~ msgstr "Masestro"
+
+#~ msgid "Receive Maestro Payments"
+#~ msgstr "Ontvang betalingen via Maestro bankpassen"
+
+#~ msgid "MiniTix"
+#~ msgstr "MiniTix"
+
+#~ msgid "Receive MiniTix Payments"
+#~ msgstr "Ontvang betalingen via MiniTix"
+
+#~ msgid ""
+#~ "Online wallet for payments up to &euro; 150 Euros. Available to Dutch "
+#~ "bank accounts only."
+#~ msgstr ""
+#~ "Online portemonnee voor betalingen tot &euro; 150 Euro. Alleen "
+#~ "beschikbaar voor Nederlandse bank rekeningen."
+
+#~ msgid "Visa or MasterCard"
+#~ msgstr "Visa of MasterCard"
+
+#~ msgid "Continue to a secure environment to complete your payment"
+#~ msgstr "Ga door naar de veilige betaalomgeving om de betaling af te ronden"
+
+#~ msgid "Card declined. Try another card or other payment method"
+#~ msgstr "Kaart geweigerd. Probeer een andere kaart of betaalmethode."
+
+#~ msgid "your account"
+#~ msgstr "jouw account"
+
+#~ msgid "Online wallet for (usually) small payments."
+#~ msgstr "Online portemonnee voor kleine betalingen."
+
+#~ msgid "Redirecting to PSP external gateway."
+#~ msgstr "Doorsturen naar PSP systeem."
+
+#~ msgid "Order set to PENDING. Error: %s."
+#~ msgstr "Order op AFWACHTEN gezet. Fout: %s."
+
+#~ msgid "Activate your License here."
+#~ msgstr "Activeer je licentie."
+
+#~ msgid "The email provided is invalid"
+#~ msgstr "Ongeldig email adres"
+
+#~ msgid "Invalid license key"
+#~ msgstr "Ongeldige licentie sleutel"
+
+#~ msgid "No remaining activations for this license"
+#~ msgstr "Geen activaties meer mogelijk voor dit licentie"
+
+#~ msgid "Action prohibited"
+#~ msgstr "Actie geweigerd"
+
+#~ msgid "Form can not be empty!"
+#~ msgstr "Formulier mag niet leeg zijn!"
+
+#~ msgid "Omnicard License"
+#~ msgstr "OmniCard Licentie"
+
+#~ msgid "Receive Mastercard Credit Card Payments"
+#~ msgstr "Ontvang betalingen via Mastercards"
+
+#~ msgid "2 hours"
+#~ msgstr "2 Uur"

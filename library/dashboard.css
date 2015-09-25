@@ -1,0 +1,9 @@
+/* Banner styles */
+.omnicard_banner { margin:12px 0; position:relative; overflow:hidden; }
+.omnicard_banner .text { color:#000; font-size:15px; line-height:26px; margin:18px 18px 14px; float:left; width:auto; max-width:90%; }
+.omnicard_banner .text span { font-size:12px; opacity:0.7; }
+.omnicard_banner .button { float:left; border:none; font-size:14px; margin:18px 0 18px 16px; padding:12px 0; color:#FFF; text-shadow:none; font-weight:bold; background:#f79500; -moz-border-radius:3px; border-radius:3px; -webkit-border-radius:3px; text-decoration:none; height:50px; text-align:center; text-transform:uppercase; width:147px; box-shadow:none; line-height:26px; }
+.omnicard_banner .button:hover, .omnicard_banner .button:focus { background:#c78e27; color:#FFF; }
+
+/* Dashboard styles */
+.adrotate-photo { border-radius: 5px; }
