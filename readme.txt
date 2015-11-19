@@ -2,8 +2,8 @@
 Contributors: adegans
 Donate link: http://meandmymac.net/donate/?pk_campaign=omnicardlite-readme
 Tags: ecommerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, woocommerce, plugin, admin, payment, ideal, visa, mastercard, minitix, maestro, bancontact, mister cash, rabobank, omnikassa, bank, api, secure, betalen, betaalplugin, payment, gateway
-Requires at least: 3.5, WooCommerce 2.1
-Tested up to: 4.3
+Requires at least: 3.5
+Tested up to: 4.4
 Stable tag: 1.1
 
 The best integrated and most complete, easy to use payment gateway plugin for Rabobank Omnikassa for WooCommerce.
