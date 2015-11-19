@@ -1,20 +1,21 @@
 === OmniCard Lite ===
 Contributors: adegans
-Donate link: http://meandmymac.net/donate/?pk_campaign=omnicardlite-readme&pk_kwd=donatelink
+Donate link: http://meandmymac.net/donate/?pk_campaign=omnicardlite-readme
 Tags: ecommerce, e-commerce, commerce, wordpress ecommerce, store, sales, sell, shop, shopping, cart, checkout, configurable, woocommerce, plugin, admin, payment, ideal, visa, mastercard, minitix, maestro, bancontact, mister cash, rabobank, omnikassa, bank, api, secure, betalen, betaalplugin, payment, gateway
-Requires at least: 3.5, WooCommerce 2.1
-Tested up to: 4.2.2
-Stable tag: 1.0.1
+Requires at least: 3.5
+Tested up to: 4.4
+Stable tag: 1.1
 
-The most complete and easy to use payment gateway plugin for Rabobank Omnikassa
+The best integrated and most complete, easy to use payment gateway plugin for Rabobank Omnikassa for WooCommerce.
 
 == Description ==
 
-Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able to accept every Payment method it has to offer? Looking for a super easy plugin that just works without fuss? OmniCard is for you! Where other plugins leave you in the dark by supporting one or two of the payment methods, OmniCard goes all the way by supporting iDEAL, All Credit Cards and MiniTix. All in one plugin, One gateway, hassle free and totally cool!
+Are you using WooCommerce for WordPress with Rabobank Omnikassa and want to be able to accept iDeal and Bancontact/Mister Cash Payments? Looking for a super easy plugin that just works without fuss? OmniCard Lite is for you! Get started in minutes and start making money quickly!
+Also available is OmniKassa for WooCommerce. The full version of OmniCard Lite. Accept all payment methods from Rabobank Omnikassa including Mastercard and Visa cards. Also there is of-course no transaction limit in [Omnikassa for WooCommerce](https://ajdg.solutions/products/omnikassa-for-woocommerce/?pk_campaign=omnicardlite-readme)!
 
 **Features**
 
-* Payment methods: iDEAL, Bancontact/Mister Cash, VISA, V-PAY, Mastercard, Maestro, MiniTix
+* Payment methods: iDEAL, Bancontact/Mister Cash
 * Easy to use dashboard
 * Automated callback for asynchronous updates
 * All payment methods optional
@@ -25,9 +26,9 @@ Are you using WooCommerce for WordPress with Rabo Omnikassa and want to be able 
 
 **Security**
 
-* Complies with Omnikassa SHA256 encryption method
-* PCI Compliant ? No credit card data stored locally
-* Forces SSL verification on the remote gateway
+* Uses Omnikassa SHA256 encryption method
+* PCI Compliant! No credit card data stored locally
+* Forces SSL verification on the payment gateway
 * Session timeout for remote gateway
 * Local SSL Supported but not required
 * Matches Card Type and Brand
@@ -52,6 +53,11 @@ Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dash
 
 == Changelog ==
 
+= 1.1 =
+* WooCommerce 2.4.x compatibility
+* Updated translations
+* Updated dashboard texts and notifications
+
 = 1.0.1 =
 * Updated ajdg.solutions links
 * Updated Dutch translation
@@ -59,24 +65,23 @@ Once activated, you can configure OmniCare Lite in the WooCommerce Checkout dash
 = 1.0 =
 * First public release
 
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=upgrade_omnicard).
+NOTE: This is a Lite version of Omnikassa for WooCommerce, certain limitations are in place. If you want to accept more than 20 transactions per month or make use of the full range of payment options for Omnikassa for WooCommerce please consider upgrading to [Omnikassa for WooCommerce page](https://ajdg.solutions/products/omnikassa-for-woocommerce/?pk_campaign=omnicardlite-readme).
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-* Updated ajdg.solutions links
-* Updated Dutch translation
-
-NOTE: This is a Lite version of OmniCard, certain limitations are in place. If you want to accept more than 50 transactions per month or make use of the full range of payment options for OmniCard for WooCommerce please consider upgrading to [OmniCard](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=upgrade_omnicard).
+= 1.1 =
+* WooCommerce 2.4.x compatibility
+* Updated translations
+* Updated dashboard texts and notifications
 
 == Frequently Asked Questions ==
 
-Take a look at the [OmniCard page](https://ajdg.solutions/products/omnicard/?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_faq).
+Take a look at the [Omnikassa for WooCommerce page](https://ajdg.solutions/products/omnikassa-for-woocommerce/?pk_campaign=omnicardlite-readme).
 
 == Screenshots ==
 
-See some screenshots on the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_screenshots).
+See some screenshots on the [Omnikassa for WooCommerce page](https://ajdg.solutions/products/omnikassa-for-woocommerce/?pk_campaign=omnicardlite-readme).
 
 == Changelog ==
 
-Check out the [OmniCard page](http://www.ajdg.net/products/omnicard?pk_campaign=omnicardlite-readme&pk_kwd=omnicard_changelog).
+Check out the [Omnikassa for WooCommerce page](https://ajdg.solutions/products/omnikassa-for-woocommerce/?pk_campaign=omnicardlite-readme).
